@@ -1,0 +1,11 @@
+GUÍA JAPÓN — PWA lista para publicar
+
+1. Sube TODOS los archivos y la carpeta icons a un alojamiento HTTPS (Netlify Drop, GitHub Pages, etc.).
+2. Comparte la URL pública por WhatsApp. No envíes el archivo index.html como adjunto.
+3. En iPhone, abre el enlace EN SAFARI y pulsa Compartir > Añadir a pantalla de inicio. En Android, abre en Chrome y usa Instalar aplicación/Añadir a pantalla de inicio.
+4. Abre la guía una vez con internet, espera a que cargue, y prueba en modo avión. La navegación por ciudades y la lectura del contenido funcionan sin conexión.
+5. Los enlaces externos (Google Maps, reservas, webs oficiales) requieren internet salvo que esas otras aplicaciones tengan sus propios datos descargados.
+6. Las tipografías de Google usan internet la primera vez. Offline se utilizarán las tipografías de reserva del dispositivo si no están en caché del navegador.
+7. Después de actualizar archivos, cambia el nombre de CACHE en service-worker.js (p. ej. japon-guia-v2) para forzar renovación de la caché.
+
+Nota: una PWA no puede instalarse correctamente abriendo index.html como archivo local o en el visor de WhatsApp. Debe servirse por HTTPS.

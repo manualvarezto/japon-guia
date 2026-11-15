@@ -1,0 +1,1767 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#EAE8EE" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#14121A" media="(prefers-color-scheme: dark)">
+<title>Japón: guía de Kioto, Osaka y Tokio</title>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ===== Sistema común de la serie Japón =====
+   Para cada nueva zona: cambiar --zone (color de la zona) y el kanji del hero. */
+:root{
+  --paper:#EAE8EE;      /* Tokio: gris lavanda */
+  --sheet:#F7F6F9;      /* hoja */
+  --ink:#1F1C26;        /* sumi violáceo */
+  --ink-soft:#5D5869;
+  --rule:#D0CCD8;
+  --moss:#4D6A4B;       /* musgo de jardín */
+  --zone:#15784F;       /* zona 5: esmeralda */
+  --zone-tint:#D6EEE2;
+  --city:#6B4A92;       /* Tokio: morado Edo (Edo-murasaki) */
+  --lantern:#B7862A;    /* farol */
+  --lantern-tint:#F3E7CC;
+  --serif:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",Georgia,serif;
+  --sans:"Zen Kaku Gothic New","Hiragino Sans",-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#14121A; --sheet:#1E1B26; --ink:#ECEAE2; --ink-soft:#A7ADB8;
+    --rule:#2E3647; --moss:#8FB08A; --zone:#5FD39E; --zone-tint:#163328; --city:#B79BE0;
+    --lantern:#E3B65A; --lantern-tint:#3A3020; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#14121A; --sheet:#1E1B26; --ink:#ECEAE2; --ink-soft:#A7ADB8;
+  --rule:#2E3647; --moss:#8FB08A; --zone:#5FD39E; --zone-tint:#163328; --city:#B79BE0;
+  --lantern:#E3B65A; --lantern-tint:#3A3020; color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--sans);font-size:17px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+a:focus-visible{outline:2px solid var(--zone);outline-offset:3px;border-radius:4px}
+.wrap{max-width:560px;margin:0 auto;padding:0 20px}
+
+/* ===== Hero ===== */
+.hero{position:relative;padding:28px 0 30px;overflow:hidden}
+.hero .city{font-family:var(--serif);font-weight:700;font-size:15px;color:var(--ink-soft);margin:0 0 2px}
+.hero .zone-no{font-family:var(--sans);font-weight:700;font-size:15px;color:var(--zone);margin:0}
+.hero h1{
+  font-family:var(--serif);font-weight:800;font-size:clamp(40px,12vw,56px);
+  line-height:1.02;letter-spacing:-.01em;margin:14px 0 14px;max-width:72%;
+}
+.hero .lede{font-size:17px;color:var(--ink-soft);margin:0;max-width:74%}
+.kanji{
+  position:absolute;right:-4px;top:18px;
+  writing-mode:vertical-rl;font-family:var(--serif);font-weight:800;
+  font-size:clamp(64px,20vw,96px);line-height:1;color:var(--zone);
+  opacity:.9;letter-spacing:.06em;user-select:none;
+}
+.kanji small{font-size:.32em;color:var(--ink-soft);font-weight:500;margin-top:.5em;letter-spacing:.2em}
+
+/* leyenda día / noche */
+.legend{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0 0}
+.tag{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:500;
+  padding:4px 11px 4px 9px;border-radius:999px;line-height:1.4}
+.tag.day{background:var(--sheet);border:1px solid var(--rule)}
+.tag.night{background:var(--lantern-tint);color:var(--ink)}
+.dot{width:9px;height:9px;border-radius:50%;flex:none}
+.day .dot{background:var(--moss)}
+.night .dot{background:var(--lantern);box-shadow:0 0 0 3px color-mix(in srgb,var(--lantern) 30%,transparent)}
+
+/* aviso de fechas clave */
+.keydates{margin:22px 0 0;background:var(--zone-tint);border-radius:14px;padding:14px 16px}
+.keydates p{margin:0;font-size:15.5px;line-height:1.5}
+.keydates strong{color:var(--zone)}
+
+/* ===== Ruta ===== */
+.section-title{font-family:var(--serif);font-weight:700;font-size:24px;margin:34px 0 4px}
+.section-note{font-size:15px;color:var(--ink-soft);margin:0 0 18px}
+.route{list-style:none;margin:0;padding:0;position:relative}
+.route::before{content:"";position:absolute;left:17px;top:22px;bottom:40px;width:2px;
+  background:repeating-linear-gradient(var(--rule) 0 6px,transparent 6px 11px)}
+.stop{position:relative;padding:0 0 26px 52px}
+.num{position:absolute;left:0;top:0;width:36px;height:36px;border-radius:50%;
+  background:var(--paper);border:2px solid var(--zone);color:var(--zone);
+  display:grid;place-items:center;font-family:var(--serif);font-weight:800;font-size:17px}
+.stop h3{font-family:var(--serif);font-weight:700;font-size:23px;line-height:1.2;margin:2px 0 6px}
+.stop .what{margin:0 0 12px}
+.hours{background:var(--sheet);border:1px solid var(--rule);border-radius:14px;padding:4px 14px;margin:0 0 10px}
+.row{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:start;padding:10px 0;border-top:1px solid var(--rule)}
+.row:first-child{border-top:0}
+.row .tag{font-size:13px;padding:2px 9px 2px 7px;margin-top:2px}
+.row p{margin:0;font-size:15.5px;line-height:1.5}
+.row b{font-weight:700}
+.tip{font-size:15.5px;color:var(--moss);margin:0 0 10px;font-weight:500}
+.links{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px;color:var(--ink-soft)}
+.links a{text-decoration-color:var(--rule);text-underline-offset:3px}
+.map{font-weight:700;color:var(--zone)!important;text-decoration:none!important}
+
+/* ===== Comer ===== */
+.meals{display:grid;gap:14px;margin:0 0 8px}
+.meal{background:var(--sheet);border-radius:18px;padding:18px 18px 16px;border-left:5px solid var(--moss)}
+.meal.dinner{border-left-color:var(--lantern)}
+.meal .when{font-size:14px;font-weight:700;color:var(--moss);margin:0}
+.meal.dinner .when{color:var(--lantern)}
+.meal h3{font-family:var(--serif);font-weight:700;font-size:22px;margin:2px 0 6px;line-height:1.25}
+.meal p{margin:0 0 10px;font-size:16px}
+.gloss{color:var(--ink-soft)}
+
+/* experiencia y precios */
+.meal.exp{border-left-color:var(--zone)}
+.meal.exp .when{color:var(--zone)}
+.facts{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
+.fact{font-size:14px;font-weight:500;padding:3px 10px;border-radius:8px;background:var(--paper);border:1px solid var(--rule)}
+.fact.must{background:var(--zone-tint);border-color:transparent;color:var(--zone);font-weight:700}
+
+/* traslado entre paradas */
+.transfer{position:relative;padding:0 0 22px 52px;font-size:15px;color:var(--ink-soft)}
+.transfer span{display:inline-block;background:var(--paper);border:1px dashed var(--rule);border-radius:999px;padding:3px 12px;font-weight:500}
+.stop .facts{margin-top:2px}
+
+/* parada para comer dentro de la ruta */
+.num.eat{border-color:var(--moss);color:var(--moss);font-size:16px;font-weight:700}
+.stop.eat h3{font-size:21px}
+.stop .when{font-size:14px;font-weight:700;color:var(--moss);margin:0}
+
+/* ===== Ciudad con varias zonas ===== */
+.hero .city{color:var(--city);font-size:16px}
+.hero .kanji{color:var(--city)}
+.jump{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0 0}
+.jump a{flex:1 1 0;min-width:96px;text-decoration:none;background:var(--sheet);border-radius:14px;padding:10px 12px;border-top:4px solid var(--zone);line-height:1.3}
+.jump b{display:block;font-family:var(--serif);font-size:16px}
+.jump span{font-size:13px;color:var(--ink-soft)}
+
+.z-castle{--zone:#2E6F63;--zone-tint:#D5E8E3}
+.z-bay{--zone:#1F5C99;--zone-tint:#D8E5F3}
+.z-namba{--zone:#B3206A;--zone-tint:#F4DAE7}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .z-castle{--zone:#7CC6B6;--zone-tint:#173029}
+  :root:not([data-theme="light"]) .z-bay{--zone:#86B6EE;--zone-tint:#172A40}
+  :root:not([data-theme="light"]) .z-namba{--zone:#F282B9;--zone-tint:#3A1A2B}
+}
+:root[data-theme="dark"] .z-castle{--zone:#7CC6B6;--zone-tint:#173029}
+:root[data-theme="dark"] .z-bay{--zone:#86B6EE;--zone-tint:#172A40}
+:root[data-theme="dark"] .z-namba{--zone:#F282B9;--zone-tint:#3A1A2B}
+
+.zone{padding-top:18px;margin-top:22px;border-top:1px solid var(--rule)}
+.zone-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin:0 0 16px}
+.zone-head .zone-no{font-weight:700;font-size:15px;color:var(--zone);margin:0}
+.zone-head h2{font-family:var(--serif);font-weight:800;font-size:clamp(28px,8vw,36px);line-height:1.1;margin:4px 0 8px}
+.zone-head .tag{font-size:13px}
+.zone-kanji{writing-mode:vertical-rl;font-family:var(--serif);font-weight:800;font-size:34px;line-height:1;color:var(--zone);letter-spacing:.08em;flex:none}
+.zone .keydates{margin:0 0 20px}
+.zone .section-title{font-size:21px;margin:8px 0 12px}
+.leg{margin:-4px 0 0;padding:0 0 0 52px;font-size:15px;color:var(--ink-soft)}
+.leg span{display:inline-block;background:var(--sheet);border:1px dashed var(--rule);border-radius:999px;padding:4px 12px;font-weight:500}
+.series-group{font-size:13px;color:var(--ink-soft);margin:0 0 6px;font-weight:700}
+.series + .series-group{margin-top:12px}
+
+/* ===== Calendario semanal ===== */
+.week{margin:14px 0 0;background:var(--sheet);border-radius:14px;padding:12px 12px 10px;overflow-x:auto}
+.week table{width:100%;border-collapse:collapse;font-size:14px}
+.week th{font-weight:500;color:var(--ink-soft);padding:2px 0 6px;text-align:center}
+.week th.best{color:var(--zone);font-weight:700}
+.week td{text-align:center;padding:5px 2px}
+.week td:first-child{text-align:left;font-weight:700;white-space:nowrap;padding-right:8px}
+.c{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;font-size:14px;font-weight:700}
+.c.ok{background:var(--moss);color:var(--sheet)}
+.c.no{border:1.5px solid var(--rule);color:var(--ink-soft)}
+.c.mid{border:1.5px dashed var(--lantern);color:var(--lantern)}
+.week p{font-size:13.5px;color:var(--ink-soft);margin:8px 0 0;line-height:1.45}
+
+/* ===== Sub-lista de puestos dentro de una parada ===== */
+.sub{list-style:none;margin:4px 0 12px;padding:0;background:var(--sheet);border:1px solid var(--rule);border-radius:14px}
+.sub > li{padding:12px 14px;border-top:1px solid var(--rule)}
+.sub > li:first-child{border-top:0}
+.sub h4{font-family:var(--serif);font-weight:700;font-size:18px;line-height:1.25;margin:0 0 3px}
+.sub p{margin:0 0 6px;font-size:15.5px;line-height:1.5}
+.sub .facts{margin:2px 0 6px}
+.sub .group{font-size:14px;font-weight:700;color:var(--zone);padding-bottom:6px;background:var(--zone-tint)}
+.sub .group p{font-weight:400;color:var(--ink);margin:2px 0 0}
+.sub .group + li{border-top:0}
+.sub .nested{padding-left:26px;position:relative}
+.sub .nested::before{content:"";position:absolute;left:14px;top:16px;width:5px;height:5px;border-radius:50%;background:var(--zone)}
+.opt{display:inline-block;font-size:13px;font-weight:700;color:var(--lantern);border:1.5px dashed var(--lantern);border-radius:999px;padding:1px 10px;margin:0 0 6px}
+.stop .meals{margin:4px 0 0}
+
+/* zonas de esta página */
+.z-roppongi{--zone:#15784F;--zone-tint:#D6EEE2}
+.z-nakano{--zone:#4B45B8;--zone-tint:#E1DFF6}
+.z-trips{--zone:#4A5D73;--zone-tint:#DFE5EC}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .z-roppongi{--zone:#5FD39E;--zone-tint:#163328}
+  :root:not([data-theme="light"]) .z-nakano{--zone:#A9A3FF;--zone-tint:#24224A}
+  :root:not([data-theme="light"]) .z-trips{--zone:#A9BCD2;--zone-tint:#1F2834}
+}
+:root[data-theme="dark"] .z-roppongi{--zone:#5FD39E;--zone-tint:#163328}
+:root[data-theme="dark"] .z-nakano{--zone:#A9A3FF;--zone-tint:#24224A}
+:root[data-theme="dark"] .z-trips{--zone:#A9BCD2;--zone-tint:#1F2834}
+.meal.trip{border-left-color:var(--zone)}
+.meal.trip .when{color:var(--zone)}
+.meal .sub{margin-top:4px}
+.zone .week{margin:0 0 20px}
+
+/* Shinjuku y Kagurazaka */
+.z-shinjuku{--zone:#C2410C;--zone-tint:#F8E1D4}
+.z-kagura{--zone:#2E4A86;--zone-tint:#DBE3F2}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .z-shinjuku{--zone:#FB923C;--zone-tint:#3A2216}
+  :root:not([data-theme="light"]) .z-kagura{--zone:#93B0EA;--zone-tint:#1B2640}
+}
+:root[data-theme="dark"] .z-shinjuku{--zone:#FB923C;--zone-tint:#3A2216}
+:root[data-theme="dark"] .z-kagura{--zone:#93B0EA;--zone-tint:#1B2640}
+
+/* ===== Pie / serie ===== */
+footer{margin:34px 0 0;padding:20px 0 34px;border-top:1px solid var(--rule)}
+.series{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;-webkit-overflow-scrolling:touch}
+.chip{flex:none;font-size:14px;padding:7px 13px;border-radius:999px;border:1px solid var(--rule);color:var(--ink-soft);text-decoration:none}
+.chip.on{background:var(--zone);border-color:var(--zone);color:var(--sheet);font-weight:700}
+footer p{font-size:13px;color:var(--ink-soft);margin:14px 0 0}
+
+@media (prefers-reduced-motion:no-preference){
+  .kanji{animation:ink .9s ease-out both}
+  @keyframes ink{from{opacity:0;transform:translateY(-10px)}to{opacity:.9;transform:none}}
+}
+
+.c-kyoto{--paper:#E9ECE4;--sheet:#F6F7F2;--ink:#1D2420;--ink-soft:#56605A;--rule:#CBD1C6;--city:#3F6A3C}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .c-kyoto{--paper:#121722;--sheet:#1A2030;--ink:#ECEAE2;--ink-soft:#A7ADB8;--rule:#2E3647;--city:#9CC796}}
+:root[data-theme="dark"] .c-kyoto{--paper:#121722;--sheet:#1A2030;--ink:#ECEAE2;--ink-soft:#A7ADB8;--rule:#2E3647;--city:#9CC796}
+.c-osaka{--paper:#E4E9EE;--sheet:#F5F7F9;--ink:#1A2129;--ink-soft:#55606C;--rule:#C6CED7;--city:#C8102E}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .c-osaka{--paper:#0F151D;--sheet:#18202B;--ink:#ECEAE2;--ink-soft:#A7ADB8;--rule:#2E3647;--city:#FF5A6E}}
+:root[data-theme="dark"] .c-osaka{--paper:#0F151D;--sheet:#18202B;--ink:#ECEAE2;--ink-soft:#A7ADB8;--rule:#2E3647;--city:#FF5A6E}
+.c-tokyo{--paper:#EAE8EE;--sheet:#F7F6F9;--ink:#1F1C26;--ink-soft:#5D5869;--rule:#D0CCD8;--city:#6B4A92}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .c-tokyo{--paper:#14121A;--sheet:#1E1B26;--ink:#ECEAE2;--ink-soft:#A7ADB8;--rule:#2E3647;--city:#B79BE0}}
+:root[data-theme="dark"] .c-tokyo{--paper:#14121A;--sheet:#1E1B26;--ink:#ECEAE2;--ink-soft:#A7ADB8;--rule:#2E3647;--city:#B79BE0}
+.p-kioto-1{--zone:#A8362B;--zone-tint:#F1DDD8}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .p-kioto-1{--zone:#E07A6C;--zone-tint:#3A2328}}
+:root[data-theme="dark"] .p-kioto-1{--zone:#E07A6C;--zone-tint:#3A2328}
+.p-kioto-2{--zone:#2F4E8A;--zone-tint:#DCE3F1}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .p-kioto-2{--zone:#93AEE6;--zone-tint:#222C44}}
+:root[data-theme="dark"] .p-kioto-2{--zone:#93AEE6;--zone-tint:#222C44}
+.p-kioto-3{--zone:#1F6E66;--zone-tint:#D6EBE6}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .p-kioto-3{--zone:#79C7BB;--zone-tint:#17302D}}
+:root[data-theme="dark"] .p-kioto-3{--zone:#79C7BB;--zone-tint:#17302D}
+.p-kioto-4{--zone:#B9501A;--zone-tint:#F5E0D2}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .p-kioto-4{--zone:#F09A63;--zone-tint:#3A2519}}
+:root[data-theme="dark"] .p-kioto-4{--zone:#F09A63;--zone-tint:#3A2519}
+.p-osaka-dia{--zone:#1A2129;--zone-tint:#DDE3EA}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .p-osaka-dia{--zone:#ECEAE2;--zone-tint:#222B37}}
+:root[data-theme="dark"] .p-osaka-dia{--zone:#ECEAE2;--zone-tint:#222B37}
+.p-tokio-1{--zone:#B0343F;--zone-tint:#F2DCDF}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .p-tokio-1{--zone:#F08A93;--zone-tint:#3A1E24}}
+:root[data-theme="dark"] .p-tokio-1{--zone:#F08A93;--zone-tint:#3A1E24}
+.p-tokio-2{--zone:#19707D;--zone-tint:#D5ECEF}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .p-tokio-2{--zone:#6CC9D6;--zone-tint:#15303A}}
+:root[data-theme="dark"] .p-tokio-2{--zone:#6CC9D6;--zone-tint:#15303A}
+.p-tokio-3{--zone:#C2410C;--zone-tint:#F8E1D4}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .p-tokio-3{--zone:#FB923C;--zone-tint:#3A2216}}
+:root[data-theme="dark"] .p-tokio-3{--zone:#FB923C;--zone-tint:#3A2216}
+.p-tokio-4{--zone:#B8296E;--zone-tint:#F7DCE8}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .p-tokio-4{--zone:#F48BBE;--zone-tint:#3A1B2B}}
+:root[data-theme="dark"] .p-tokio-4{--zone:#F48BBE;--zone-tint:#3A1B2B}
+.p-tokio-5{--zone:#15784F;--zone-tint:#D6EEE2}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .p-tokio-5{--zone:#5FD39E;--zone-tint:#163328}}
+:root[data-theme="dark"] .p-tokio-5{--zone:#5FD39E;--zone-tint:#163328}
+
+.city{background:var(--paper);color:var(--ink)}
+.page{padding-bottom:10px}
+.page + .page{border-top:6px solid var(--zone)}
+.c-kyoto .hero .kanji{color:var(--zone)}
+.c-kyoto .hero .city{color:var(--city)}
+.hero .city{color:var(--city)}
+
+/* ===== Barra fija ===== */
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 60px)}
+.topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--sheet) 88%,transparent);
+  -webkit-backdrop-filter:saturate(1.4) blur(12px);backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid var(--rule)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:21;
+  background:color-mix(in srgb,var(--sheet) 88%,transparent);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.topbar nav{max-width:560px;margin:0 auto;display:flex;gap:6px;padding:8px 14px}
+.topbar a{flex:1;text-align:center;text-decoration:none;font-weight:700;font-size:15px;padding:8px 4px;border-radius:12px;color:var(--ink-soft)}
+.topbar a[data-c="kioto"].on{background:#3F6A3C;color:#fff}
+.topbar a[data-c="osaka"].on{background:#C8102E;color:#fff}
+.topbar a[data-c="tokio"].on{background:#6B4A92;color:#fff}
+.topbar a[data-c="inicio"].on{background:var(--ink);color:var(--sheet)}
+
+/* ===== Portada ===== */
+.cover{padding:30px 0 34px}
+.cover .kanji{color:var(--ink)}
+.cover h1{max-width:70%}
+.cities{display:grid;gap:14px;margin-top:26px}
+.citycard{background:var(--sheet);border-radius:18px;padding:16px 16px 12px;border-top:5px solid var(--city)}
+.citycard h2{font-family:var(--serif);font-weight:800;font-size:28px;margin:0;display:flex;justify-content:space-between;align-items:baseline}
+.citycard h2 a{text-decoration:none}
+.citycard h2 span{font-size:20px;color:var(--city);font-weight:700}
+.citycard ul{list-style:none;margin:8px 0 0;padding:0}
+.citycard li a{display:flex;align-items:center;gap:10px;padding:10px 0;border-top:1px solid var(--rule);text-decoration:none;font-size:16px}
+.citycard li a::before{content:"";width:10px;height:10px;border-radius:50%;background:var(--zone);flex:none}
+.cover .note{font-size:13.5px;color:var(--ink-soft);margin:18px 0 0}
+
+/* ===== Portadilla de ciudad ===== */
+.citybanner{padding:34px 0 8px}
+.citybanner .big{display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
+.citybanner h2{font-family:var(--serif);font-weight:800;font-size:clamp(48px,15vw,72px);line-height:1;margin:0;color:var(--city)}
+.citybanner .kj{font-family:var(--serif);font-weight:800;font-size:40px;color:var(--city);opacity:.5}
+.citybanner p{color:var(--ink-soft);margin:8px 0 14px;font-size:16px}
+.citybanner .series{flex-wrap:wrap;overflow:visible}
+.citybanner .chip{background:var(--sheet)}
+.citybanner .chip::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--zone);margin-right:7px;vertical-align:1px}
+.backtop{display:inline-block;margin:6px 0 24px;font-size:14px;color:var(--ink-soft)}
+footer.end{padding:24px 0 40px;font-size:13px;color:var(--ink-soft);border-top:1px solid var(--rule)}
+</style>
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Japón 2026">
+<meta name="description" content="Guía interactiva de Kioto, Osaka y Tokio, disponible offline.">
+</head>
+<body>
+<header class="topbar">
+  <nav aria-label="Ciudades">
+    <a href="#inicio" data-c="inicio" class="on">Inicio</a>
+    <a href="#kioto" data-c="kioto">Kioto</a>
+    <a href="#osaka" data-c="osaka">Osaka</a>
+    <a href="#tokio" data-c="tokio">Tokio</a>
+  </nav>
+</header>
+<div class="city c-kyoto" id="inicio" data-city="inicio">
+  <div class="wrap cover hero">
+    <div class="kanji" aria-hidden="true">日本<small>秋</small></div>
+    <p class="city" style="color:var(--ink-soft)">Otoño 2026</p>
+    <h1>Japón</h1>
+    <p class="lede">Kioto, Osaka y Tokio, zona por zona. Toquen una zona para ir directo.</p>
+    <div class="cities">
+<div class="citycard c-kyoto"><h2><a href="#kioto">Kioto</a><span>京都</span></h2><ul><li class="p-kioto-1"><a href="#kioto-1">1. Higashiyama y Gion</a></li><li class="p-kioto-2"><a href="#kioto-2">2. Centro</a></li><li class="p-kioto-3"><a href="#kioto-3">3. Arashiyama y Kinkaku-ji</a></li><li class="p-kioto-4"><a href="#kioto-4">4. Fushimi Inari</a></li></ul></div>
+<div class="citycard c-osaka"><h2><a href="#osaka">Osaka</a><span>大阪</span></h2><ul><li class="p-osaka-dia"><a href="#osaka-dia">Castillo, bahía y Namba</a></li></ul></div>
+<div class="citycard c-tokyo"><h2><a href="#tokio">Tokio</a><span>東京</span></h2><ul><li class="p-tokio-1"><a href="#tokio-1">1. Tsukiji y Ginza</a></li><li class="p-tokio-2"><a href="#tokio-2">2. Asakusa y Akihabara</a></li><li class="p-tokio-3"><a href="#tokio-3">3. Shinjuku y Kagurazaka</a></li><li class="p-tokio-4"><a href="#tokio-4">4. Harajuku y Shibuya</a></li><li class="p-tokio-5"><a href="#tokio-5">5 y 6. Roppongi, Nakano y excursiones</a></li></ul></div>
+    </div>
+    <p class="note">Horarios y precios de otoño 2026. Conviene confirmarlos en las webs oficiales antes de ir.</p>
+  </div>
+</div>
+<div class="city c-kyoto" id="kioto" data-city="kioto">
+  <div class="wrap citybanner">
+    <div class="big"><h2>Kioto</h2><span class="kj" aria-hidden="true">京都</span></div>
+    <p>Templos, jardines y otoño en cuatro zonas.</p>
+    <nav class="series" aria-label="Zonas de Kioto"><a class="chip p-kioto-1" href="#kioto-1">1. Higashiyama y Gion</a><a class="chip p-kioto-2" href="#kioto-2">2. Centro</a><a class="chip p-kioto-3" href="#kioto-3">3. Arashiyama y Kinkaku-ji</a><a class="chip p-kioto-4" href="#kioto-4">4. Fushimi Inari</a></nav>
+  </div>
+<section class="page p-kioto-1" id="kioto-1"><div class="wrap">
+
+  <header class="hero">
+    <div class="kanji" aria-hidden="true">東山<small>祇園</small></div>
+    <p class="city">Kioto</p>
+    <p class="zone-no">Zona 1, este</p>
+    <h1>Higashiyama y Gion</h1>
+    <p class="lede">Templos de día e iluminaciones de noche.</p>
+    <div class="legend" aria-label="Leyenda">
+      <span class="tag day"><span class="dot"></span>De día</span>
+      <span class="tag night"><span class="dot"></span>De noche</span>
+    </div>
+    <div class="keydates">
+      <p><strong>Del 21 al 30 de noviembre</strong> coinciden las aperturas nocturnas de Kiyomizu-dera y el jardín Jojuin con la iluminación de Kodai-ji (esta dura hasta el 13 de diciembre).</p>
+    </div>
+  </header>
+
+  <h2 class="section-title">La ruta</h2>
+  <p class="section-note">En orden, de sur a norte, terminando en Gion al anochecer.</p>
+
+  <ol class="route">
+
+    <li class="stop">
+      <span class="num" aria-hidden="true">1</span>
+      <h3>Chishaku-in</h3>
+      <p class="what">Templo con jardín y pinturas, tranquilo y a 5 minutos de Sanjusangendo.</p>
+      <p class="tip">Buen arranque antes de subir a Kiyomizu.</p>
+      <div class="links">
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=Chishaku-in+Kyoto">Abrir en el mapa</a>
+        <a href="https://www.magical-trip.com/media/sanjusangendo-temple-in-kyoto-1-001-kannons-there/">Magical Trip</a>
+      </div>
+    </li>
+
+    <li class="stop">
+      <span class="num" aria-hidden="true">2</span>
+      <h3>Kiyomizu-dera</h3>
+      <p class="what">El templo de la gran terraza de madera sobre la ladera.</p>
+      <div class="hours">
+        <div class="row"><span class="tag day"><span class="dot"></span>Día</span>
+          <p>Abre a las <b>6:00</b> todos los días. Temprano hay menos gente.</p></div>
+        <div class="row"><span class="tag night"><span class="dot"></span>Noche</span>
+          <p><b>21–30 nov:</b> abierto hasta las 21:30, última entrada 21:00.</p></div>
+        <div class="row"><span class="tag day"><span class="dot"></span>Jojuin</span>
+          <p><b>21–30 nov:</b> jardín Jojuin de día hasta las 16:00 y de noche de 18:00 a 20:30 (última entrada).</p></div>
+      </div>
+      <div class="links">
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=Kiyomizu-dera+Kyoto">Abrir en el mapa</a>
+        <a href="https://www.kiyomizudera.or.jp/en/location/">Horario</a>
+        <a href="http://www.kiyomizudera.or.jp/en/visit/special_night_viewing/">Apertura nocturna</a>
+        <a href="https://www.kiyomizudera.or.jp/en/news/2026/jojuin_autumn2026.php">Jardín Jojuin</a>
+      </div>
+    </li>
+
+    <li class="stop">
+      <span class="num" aria-hidden="true">3</span>
+      <h3>Kodai-ji</h3>
+      <p class="what">Templo zen con jardines y un estanque.</p>
+      <div class="hours">
+        <div class="row"><span class="tag day"><span class="dot"></span>Día</span>
+          <p><b>9:00 a 17:00</b></p></div>
+        <div class="row"><span class="tag night"><span class="dot"></span>Noche</span>
+          <p>Iluminación de otoño <b>hasta el 13 dic</b>, de 17:00 a 22:00, última entrada 21:30.</p></div>
+      </div>
+      <div class="links">
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=Kodai-ji+Kyoto">Abrir en el mapa</a>
+        <a href="https://jal.japantravel.com/index.php/places/kyoto/kodaiji/173">Japan Travel</a>
+        <a href="https://www.leafkyoto.net/en/events/october-19-2026-kyoto-kodaiji-temple/">Leaf Kyoto</a>
+      </div>
+    </li>
+
+    <li class="stop">
+      <span class="num" aria-hidden="true">4</span>
+      <h3>Santuario Yasaka y Gion</h3>
+      <p class="what">Gion es el barrio de las casas de té y las geishas.</p>
+      <div class="hours">
+        <div class="row"><span class="tag night"><span class="dot"></span>24 h</span>
+          <p>El santuario está abierto todo el día. De noche se encienden sus faroles.</p></div>
+      </div>
+      <div class="links">
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=Yasaka+Shrine+Kyoto">Abrir en el mapa</a>
+        <a href="https://www.guide2japan.com/destinations/kyoto/yasaka-shrine/">Guide2Japan</a>
+      </div>
+    </li>
+
+  </ol>
+
+  <h2 class="section-title">Dónde comer</h2>
+  <p class="section-note">Una parada a primera hora y otra al cerrar el día.</p>
+
+  <div class="meals">
+    <article class="meal">
+      <p class="when">Desayuno</p>
+      <h3>Rojiusagi</h3>
+      <p>Desayuno casero japonés con obanzai <span class="gloss">(platitos de verduras al estilo de Kioto)</span>, en una machiya <span class="gloss">(casa tradicional de madera)</span>, a 4 minutos de la estación Gion-Shijo.</p>
+      <div class="links">
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=Rojiusagi+Kyoto">Abrir en el mapa</a>
+        <a href="https://matcha-jp.com/en/7736">Matcha</a>
+        <a href="https://en.tabiiro.travel/restaurants/detail/314976-kyoto-rojiusagi/">Tabiiro</a>
+      </div>
+    </article>
+
+    <article class="meal dinner">
+      <p class="when">Cena</p>
+      <h3>Chao Chao Sanjo Kiyamachi</h3>
+      <p>Gyoza <span class="gloss">(empanadillas doradas a la plancha)</span> en Pontocho, cruzando el río desde Gion. Suele haber fila.</p>
+      <div class="links">
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=Chao+Chao+Sanjo+Kiyamachi+Kyoto">Abrir en el mapa</a>
+        <a href="https://www.tripadvisor.com/Restaurant_Review-g298564-d7438346-Reviews-Chao_Chao_Sanjo_Kiyamachi-Kyoto_Kyoto_Prefecture_Kinki.html">Tripadvisor</a>
+      </div>
+    </article>
+  </div>
+
+<a class="backtop" href="#kioto">Volver a las zonas de Kioto</a></div></section>
+<section class="page p-kioto-2" id="kioto-2"><div class="wrap">
+
+  <header class="hero">
+    <div class="kanji" aria-hidden="true">中京<small>錦市場</small></div>
+    <p class="city">Kioto</p>
+    <p class="zone-no">Zona 2, centro</p>
+    <h1>Manga, mercado y cena especial</h1>
+    <p class="lede">Un día a pie por el centro, entre Karasuma y Nishiki.</p>
+    <div class="legend" aria-label="Leyenda">
+      <span class="tag day"><span class="dot"></span>De día</span>
+      <span class="tag night"><span class="dot"></span>De noche</span>
+    </div>
+    <div class="keydates">
+      <p><strong>Museo del Manga:</strong> cerrado el miércoles 18 y el martes 24 de noviembre. El miércoles 25 abre con entrada gratis.</p>
+    </div>
+  </header>
+
+  <h2 class="section-title">La ruta</h2>
+  <p class="section-note">Dos paradas cercanas en el centro.</p>
+
+  <ol class="route">
+
+    <li class="stop">
+      <span class="num" aria-hidden="true">1</span>
+      <h3>Kyoto International Manga Museum</h3>
+      <p class="what">En Karasuma-Oike.</p>
+      <div class="hours">
+        <div class="row"><span class="tag day"><span class="dot"></span>Día</span>
+          <p><b>10:00 a 17:00</b>, última entrada 16:30.</p></div>
+        <div class="row"><span class="tag day"><span class="dot"></span>Ojo</span>
+          <p><b>Cerrado</b> mié 18 y mar 24 nov. <b>Gratis</b> mié 25 nov.</p></div>
+      </div>
+      <div class="links">
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=Kyoto+International+Manga+Museum">Abrir en el mapa</a>
+        <a href="https://kyotomm.jp/en/calendar/">Calendario del museo</a>
+      </div>
+    </li>
+
+    <li class="stop">
+      <span class="num" aria-hidden="true">2</span>
+      <h3>Mercado Nishiki</h3>
+      <p class="what">“La cocina de Kioto”: unos 120 puestos de encurtidos, dulces y comida para probar al paso.</p>
+      <div class="links">
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=Nishiki+Market+Kyoto">Abrir en el mapa</a>
+        <a href="https://pixidia.com/en/michelin-guide-kyoto-osaka-2026-48h-foodie-itinerary/">Pixidia</a>
+      </div>
+    </li>
+
+  </ol>
+
+  <h2 class="section-title">Comer y cocinar</h2>
+  <p class="section-note">Las dos necesitan reserva.</p>
+
+  <div class="meals">
+    <article class="meal dinner">
+      <p class="when">Cena</p>
+      <h3>Kushi Tanaka</h3>
+      <div class="facts">
+        <span class="fact">Karasuma-Nishiki</span>
+        <span class="fact">Guía Michelin</span>
+        <span class="fact must">Reservar para 4</span>
+      </div>
+      <p>Kushiage <span class="gloss">(brochetas de carne, mariscos y verduras empanizadas y fritas)</span> en formato omakase <span class="gloss">(menú que decide el chef)</span>.</p>
+      <div class="links">
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=Kushi+Tanaka+Karasuma+Kyoto">Abrir en el mapa</a>
+        <a href="https://guide.michelin.com/us/en/kyoto-region/kyoto/restaurant/kushi-tanaka">Guía Michelin</a>
+      </div>
+    </article>
+
+    <article class="meal exp">
+      <p class="when">Experiencia</p>
+      <h3>Haru Cooking Class</h3>
+      <div class="facts">
+        <span class="fact">Empieza 13:00</span>
+        <span class="fact">3 a 3,5 h</span>
+        <span class="fact">¥7,900 por persona</span>
+        <span class="fact must">Reserva necesaria</span>
+      </div>
+      <p>Clase de cocina con wagyu de Kobe <span class="gloss">(la res japonesa más famosa)</span> en casa de Taro, una familia de Kioto.</p>
+      <div class="links">
+        <a href="http://www.kyoto-cooking-class.com/kyoto-kobe-beef.html">Clase de wagyu</a>
+        <a href="https://www.kyoto-cooking-class.com/">Haru Cooking Class</a>
+      </div>
+    </article>
+  </div>
+
+<a class="backtop" href="#kioto">Volver a las zonas de Kioto</a></div></section>
+<section class="page p-kioto-3" id="kioto-3"><div class="wrap">
+
+  <header class="hero">
+    <div class="kanji" aria-hidden="true">嵐山<small>金閣寺</small></div>
+    <p class="city">Kioto</p>
+    <p class="zone-no">Zona 3, oeste</p>
+    <h1>Arashiyama y el Pabellón Dorado</h1>
+    <p class="lede">Un día completo, de bosque en bosque hasta el oro.</p>
+    <div class="legend" aria-label="Leyenda">
+      <span class="tag day"><span class="dot"></span>De día</span>
+      <span class="tag night"><span class="dot"></span>De noche</span>
+    </div>
+    <div class="keydates">
+      <p><strong>Dos horas mandan:</strong> el bambú muy temprano, antes de los grupos, y Kinkaku-ji antes de las 16:00.</p>
+    </div>
+  </header>
+
+  <h2 class="section-title">La ruta</h2>
+  <p class="section-note">En orden: la mañana en Arashiyama y la tarde en el norte.</p>
+
+  <ol class="route">
+
+    <li class="stop">
+      <span class="num" aria-hidden="true">1</span>
+      <h3>Bosque de bambú de Arashiyama</h3>
+      <p class="tip">Vayan muy temprano, antes de los grupos.</p>
+      <div class="links">
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=Arashiyama+Bamboo+Grove">Abrir en el mapa</a>
+      </div>
+    </li>
+
+    <li class="stop">
+      <span class="num" aria-hidden="true">2</span>
+      <h3>Monkey Park Iwatayama</h3>
+      <p class="what">Macacos sueltos en la montaña, con vista a la ciudad.</p>
+      <div class="facts">
+        <span class="fact">9:00 a 16:00</span>
+        <span class="fact">¥800</span>
+        <span class="fact must">Solo efectivo</span>
+        <span class="fact">20 min de subida a pie</span>
+      </div>
+      <div class="links">
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=Monkey+Park+Iwatayama">Abrir en el mapa</a>
+        <a href="https://clevertourists.com/resources/arashiyama-monkey-park-bamboo-forest-kyoto-guide">Clever Tourists</a>
+      </div>
+    </li>
+
+    <li class="stop">
+      <span class="num" aria-hidden="true">3</span>
+      <h3>Almuerzo: Arashiyama Yoshimura</h3>
+      <p class="what">Soba <span class="gloss">(fideos de trigo sarraceno)</span> frío y caliente, con tempura, junto al puente Togetsukyo.</p>
+      <div class="facts">
+        <span class="fact">Bronce Tabelog Award 2026</span>
+      </div>
+      <div class="links">
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=Arashiyama+Yoshimura">Abrir en el mapa</a>
+        <a href="https://tabelog.com/en/kyoto/A2601/A260403/R447/rstLst/soba/">Tabelog</a>
+        <a href="https://jp-travel.williamlion.tw/en/japan/arashiyama-2026-food-guide-en/">Japan Travel Guide</a>
+      </div>
+    </li>
+
+    <li class="stop">
+      <span class="num" aria-hidden="true">4</span>
+      <h3>Gio-ji</h3>
+      <p class="what">Un pequeño templo con jardín de musgo, cerca de la calle antigua de Saga-Toriimoto.</p>
+      <div class="links">
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=Gio-ji+Kyoto">Abrir en el mapa</a>
+        <a href="https://mochimiles.com/things-to-do-in-arashiyama/">Mochi Miles</a>
+      </div>
+    </li>
+
+    <li class="transfer"><span>Unos 30 min en taxi</span></li>
+
+    <li class="stop">
+      <span class="num" aria-hidden="true">5</span>
+      <h3>Kinkaku-ji, el Pabellón Dorado</h3>
+      <div class="facts">
+        <span class="fact">Todos los días, 9:00 a 17:00</span>
+        <span class="fact">¥500</span>
+        <span class="fact must">Llegar antes de las 16:00</span>
+      </div>
+      <div class="links">
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=Kinkaku-ji+Kyoto">Abrir en el mapa</a>
+        <a href="https://kinkakuji.org/en/entry-fee/">Kinkaku-ji</a>
+      </div>
+    </li>
+
+  </ol>
+
+<a class="backtop" href="#kioto">Volver a las zonas de Kioto</a></div></section>
+<section class="page p-kioto-4" id="kioto-4"><div class="wrap">
+
+  <header class="hero">
+    <div class="kanji" aria-hidden="true">伏見<small>稲荷</small></div>
+    <p class="city">Kioto</p>
+    <p class="zone-no">Zona 4, sur</p>
+    <h1>Fushimi Inari y la estación</h1>
+    <p class="lede">Ideal para el día que salen hacia Osaka.</p>
+    <div class="legend" aria-label="Leyenda">
+      <span class="tag day"><span class="dot"></span>De día</span>
+      <span class="tag night"><span class="dot"></span>De noche</span>
+    </div>
+    <div class="keydates">
+      <p><strong>Para el día de salida:</strong> torii al amanecer, y el resto junto a la estación de Kioto antes del tren.</p>
+    </div>
+  </header>
+
+  <h2 class="section-title">La ruta</h2>
+  <p class="section-note">Del santuario a la estación, con una parada para comer.</p>
+
+  <ol class="route">
+
+    <li class="stop">
+      <span class="num" aria-hidden="true">1</span>
+      <h3>Fushimi Inari Taisha</h3>
+      <p class="what">El santuario de los miles de torii <span class="gloss">(portales rojos)</span> que suben por la montaña.</p>
+      <div class="hours">
+        <div class="row"><span class="tag night"><span class="dot"></span>24 h</span>
+          <p>Abierto día y noche. <b>Al amanecer</b> está casi vacío.</p></div>
+      </div>
+      <div class="links">
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=Fushimi+Inari+Taisha">Abrir en el mapa</a>
+        <a href="https://arigatojapan.com/culture/kyoto-temples-and-shrines/">Arigato Japan</a>
+      </div>
+    </li>
+
+    <li class="stop eat">
+      <span class="num eat" aria-hidden="true">食</span>
+      <p class="when">Comida</p>
+      <h3>Inafuku</h3>
+      <p class="what">Local tradicional a 3 minutos de la estación Inari, con inari sushi <span class="gloss">(arroz dentro de una bolsita de tofu frito dulce)</span> y yakitori <span class="gloss">(brochetas a la parrilla)</span> de codorniz.</p>
+      <div class="links">
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=Inafuku+Fushimi+Inari+Kyoto">Abrir en el mapa</a>
+        <a href="https://tabelog.com/en/kyoto/A2601/A260202/R8797/rstLst/">Tabelog</a>
+      </div>
+    </li>
+
+    <li class="stop">
+      <span class="num" aria-hidden="true">2</span>
+      <h3>Ito Kyuemon</h3>
+      <p class="what">Frente a la estación de Kioto. Dulces de matcha <span class="gloss">(té verde en polvo)</span> de Uji.</p>
+      <div class="facts">
+        <span class="fact">10:30 a 18:30</span>
+      </div>
+      <div class="links">
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=Itohkyuemon+Kyoto+Station">Abrir en el mapa</a>
+        <a href="https://japan-japan.com/matcha-shops/itohkyuemon/">Japan-Japan</a>
+      </div>
+    </li>
+
+  </ol>
+
+  <h2 class="section-title">Ramen cerca de la estación</h2>
+  <p class="section-note">Dos opciones. Las dos se pagan en máquina de tickets: lleven efectivo en billetes chicos.</p>
+
+  <div class="meals">
+    <article class="meal dinner">
+      <p class="when">Opción 1</p>
+      <h3>Shinpuku Saikan Honten</h3>
+      <div class="facts">
+        <span class="fact">Fila afuera</span>
+        <span class="fact must">Solo billetes de ¥1,000</span>
+      </div>
+      <p>Ramen de caldo oscuro de soya.</p>
+      <div class="links">
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=Shinpuku+Saikan+Honten+Kyoto">Abrir en el mapa</a>
+        <a href="https://japanramenguide.com/shop/kyoto/shinpuku-saikan-honten">Japan Ramen Guide</a>
+      </div>
+    </article>
+
+    <article class="meal dinner">
+      <p class="when">Opción 2</p>
+      <h3>Ginjo Ramen Kubota</h3>
+      <div class="facts">
+        <span class="fact">Estación Gojo</span>
+        <span class="fact">Sin reserva</span>
+        <span class="fact must">No acepta ¥5,000 ni ¥10,000</span>
+      </div>
+      <div class="links">
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=Ginjo+Ramen+Kubota+Kyoto">Abrir en el mapa</a>
+        <a href="https://japanramenguide.com/shop/kyoto/ginjo-ramen-kubota">Japan Ramen Guide</a>
+      </div>
+    </article>
+  </div>
+
+<a class="backtop" href="#kioto">Volver a las zonas de Kioto</a></div></section>
+</div>
+<div class="city c-osaka" id="osaka" data-city="osaka">
+  <div class="wrap citybanner">
+    <div class="big"><h2>Osaka</h2><span class="kj" aria-hidden="true">大阪</span></div>
+    <p>Un día: castillo, bahía y la noche de Namba.</p>
+    <nav class="series" aria-label="Zonas de Osaka"><a class="chip p-osaka-dia" href="#osaka-dia">Castillo, bahía y Namba</a></nav>
+  </div>
+<section class="page p-osaka-dia" id="osaka-dia"><div class="wrap">
+
+  <header class="hero">
+    <div class="kanji" aria-hidden="true">大阪<small>浪速</small></div>
+    <p class="city">Osaka</p>
+    <p class="zone-no">Un día, tres zonas</p>
+    <h1>Castillo, bahía y Namba</h1>
+    <p class="lede">Castillo por la mañana, metro directo por la línea Chuo hasta la bahía y Namba para la noche.</p>
+    <nav class="jump" aria-label="Zonas de Osaka">
+      <a class="z-castle" href="#castillo"><b>1. Castillo</b><span>Mañana, este</span></a>
+      <a class="z-bay" href="#bahia"><b>2. Bahía</b><span>Tarde, oeste</span></a>
+      <a class="z-namba" href="#namba"><b>3. Namba</b><span>Noche, centro-sur</span></a>
+    </nav>
+  </header>
+
+  <!-- ===== Zona 1 ===== -->
+  <section class="zone z-castle" id="castillo">
+    <div class="zone-head">
+      <div>
+        <p class="zone-no">Zona 1, este</p>
+        <h2>Castillo de Osaka</h2>
+        <span class="tag day"><span class="dot"></span>Mañana</span>
+      </div>
+      <div class="zone-kanji" aria-hidden="true">大阪城</div>
+    </div>
+
+    <ol class="route">
+      <li class="stop">
+        <span class="num" aria-hidden="true">1</span>
+        <h3>Castillo de Osaka</h3>
+        <p class="what">Torre museo. El parque que lo rodea vale la pena en otoño.</p>
+        <div class="facts">
+          <span class="fact">9:00 a 18:00</span>
+          <span class="fact">Última entrada 17:30</span>
+        </div>
+        <div class="links">
+          <a class="map" href="https://www.google.com/maps/search/?api=1&query=Osaka+Castle">Abrir en el mapa</a>
+          <a href="https://www.osakacastle.net/pdf/leaflet/english_202604.pdf">Osaka Castle Museum</a>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <p class="leg"><span>Metro línea Chuo, directo a la bahía</span></p>
+
+  <!-- ===== Zona 2 ===== -->
+  <section class="zone z-bay" id="bahia">
+    <div class="zone-head">
+      <div>
+        <p class="zone-no">Zona 2, oeste</p>
+        <h2>Bahía de Tempozan</h2>
+        <span class="tag day"><span class="dot"></span>Tarde</span>
+      </div>
+      <div class="zone-kanji" aria-hidden="true">天保山</div>
+    </div>
+
+    <div class="keydates">
+      <p><strong>Acuario con fecha y hora:</strong> compren el boleto electrónico oficial, que sale a la venta 30 días antes, sobre todo si quieren entrar antes de las 15:00.</p>
+    </div>
+
+    <ol class="route">
+      <li class="stop">
+        <span class="num" aria-hidden="true">1</span>
+        <h3>Acuario Kaiyukan</h3>
+        <p class="what">Unas 620 especies y tiburones ballena en el tanque central.</p>
+        <div class="facts">
+          <span class="fact must">Boleto electrónico, 30 días antes</span>
+        </div>
+        <div class="links">
+          <a class="map" href="https://www.google.com/maps/search/?api=1&query=Osaka+Aquarium+Kaiyukan">Abrir en el mapa</a>
+          <a href="https://osaka-info.jp/en/special/dc/event/detail382/">Osaka Info</a>
+          <a href="https://breezejapan.com/osaka-aquarium-kaiyukan/">Breeze Japan</a>
+        </div>
+      </li>
+
+      <li class="stop">
+        <span class="num" aria-hidden="true">2</span>
+        <h3>Noria gigante de Tempozan</h3>
+        <p class="what">Mide 112,5 m y da una vuelta en unos 15 minutos.</p>
+        <div class="hours">
+          <div class="row"><span class="tag day"><span class="dot"></span>Día</span>
+            <p><b>10:00 a 21:00</b></p></div>
+          <div class="row"><span class="tag night"><span class="dot"></span>Atardecer</span>
+            <p>Hacia las <b>17:00</b> se ve la bahía iluminada.</p></div>
+        </div>
+        <div class="links">
+          <a class="map" href="https://www.google.com/maps/search/?api=1&query=Tempozan+Ferris+Wheel">Abrir en el mapa</a>
+          <a href="https://www.gltjp.com/en/directory/item/11624/">GLTJP</a>
+          <a href="http://tempozan-kanransya.com/tempozan-kanransya.com/en/">Tempozan Ferris Wheel</a>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ===== Zona 3 ===== -->
+  <section class="zone z-namba" id="namba">
+    <div class="zone-head">
+      <div>
+        <p class="zone-no">Zona 3, centro-sur</p>
+        <h2>Namba y Dotonbori</h2>
+        <span class="tag night"><span class="dot"></span>Noche</span>
+      </div>
+      <div class="zone-kanji" aria-hidden="true">道頓堀</div>
+    </div>
+
+    <ol class="route">
+      <li class="stop">
+        <span class="num" aria-hidden="true">1</span>
+        <h3>Dotonbori y el río Tonbori</h3>
+        <p class="what">El paseo junto al río, con los letreros de neón y el ambiente de comida callejera de Osaka.</p>
+        <div class="links">
+          <a class="map" href="https://www.google.com/maps/search/?api=1&query=Dotonbori+Osaka">Abrir en el mapa</a>
+        </div>
+      </li>
+
+      <li class="stop">
+        <span class="num" aria-hidden="true">2</span>
+        <h3>Hozenji Yokocho</h3>
+        <p class="what">Yokocho <span class="gloss">(callejón de bares y puestos)</span> empedrado, con kappo <span class="gloss">(cocina hecha frente a la barra)</span>, bares, okonomiyaki y kushikatsu <span class="gloss">(brochetas fritas al estilo Osaka)</span>.</p>
+        <div class="links">
+          <a class="map" href="https://www.google.com/maps/search/?api=1&query=Hozenji+Yokocho+Osaka">Abrir en el mapa</a>
+          <a href="https://osaka-info.jp/en/special/coolosaka/en/cool-night/1178/">Osaka Info</a>
+        </div>
+      </li>
+    </ol>
+
+    <h3 class="section-title">Cenar, postre y después</h3>
+    <div class="meals">
+      <article class="meal dinner">
+        <p class="when">Cena</p>
+        <h3>Chibo Dotonbori</h3>
+        <div class="facts"><span class="fact">Edificio de 6 pisos</span></div>
+        <p>Okonomiyaki <span class="gloss">(una especie de tortilla salada de col y masa, con carne o mariscos, hecha a la plancha)</span>.</p>
+        <div class="links">
+          <a class="map" href="https://www.google.com/maps/search/?api=1&query=Chibo+Dotonbori">Abrir en el mapa</a>
+          <a href="http://www.dotonbori.or.jp/en/shops/78">Dotonbori</a>
+        </div>
+      </article>
+
+      <article class="meal">
+        <p class="when">Postre</p>
+        <h3>Rikuro Ojisan</h3>
+        <div class="facts"><span class="fact">Local principal de Namba</span></div>
+        <p>Cheesecake japonés recién horneado, esponjoso.</p>
+        <div class="links">
+          <a class="map" href="https://www.google.com/maps/search/?api=1&query=Rikuro+Ojisan+Namba+Main+Store">Abrir en el mapa</a>
+          <a href="https://www.rikuro.co.jp/en/">Rikuro</a>
+        </div>
+      </article>
+
+      <article class="meal exp">
+        <p class="when">Entretenimiento</p>
+        <h3>Round1 Stadium Sennichimae</h3>
+        <div class="facts"><span class="fact">Local insignia</span><span class="fact must">Abierto 24 h</span></div>
+        <p>Videojuegos, boliche y karaoke.</p>
+        <div class="links">
+          <a class="map" href="https://www.google.com/maps/search/?api=1&query=Round1+Stadium+Sennichimae">Abrir en el mapa</a>
+          <a href="https://metronine.osaka/en/kiosk/spot-detail/?kstation=&spot_id=15623442974004&kcat=">Metro Osaka</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+<a class="backtop" href="#osaka">Volver a las zonas de Osaka</a></div></section>
+</div>
+<div class="city c-tokyo" id="tokio" data-city="tokio">
+  <div class="wrap citybanner">
+    <div class="big"><h2>Tokio</h2><span class="kj" aria-hidden="true">東京</span></div>
+    <p>Seis zonas y dos excursiones de un día.</p>
+    <nav class="series" aria-label="Zonas de Tokio"><a class="chip p-tokio-1" href="#tokio-1">1. Tsukiji y Ginza</a><a class="chip p-tokio-2" href="#tokio-2">2. Asakusa y Akihabara</a><a class="chip p-tokio-3" href="#tokio-3">3. Shinjuku y Kagurazaka</a><a class="chip p-tokio-4" href="#tokio-4">4. Harajuku y Shibuya</a><a class="chip p-tokio-5" href="#tokio-5">5 y 6. Roppongi, Nakano y excursiones</a></nav>
+  </div>
+<section class="page p-tokio-1" id="tokio-1"><div class="wrap">
+
+  <header class="hero">
+    <div class="kanji" aria-hidden="true">築地<small>銀座</small></div>
+    <p class="city">Tokio</p>
+    <p class="zone-no">Zona 1</p>
+    <h1>Tsukiji, Hamarikyu, Ginza y Marunouchi</h1>
+    <p class="lede">Del mercado al jardín junto a la bahía, y de ahí a Ginza para cenar.</p>
+    <div class="keydates">
+      <p><strong>Cuándo ir:</strong> muchos puestos de Tsukiji cierran domingos, feriados y algunos miércoles. Lo más seguro es ir temprano de lunes a sábado, evitando los miércoles y el feriado del lunes 23. Si el día es martes, jueves, viernes o sábado, también abre la cena principal, Bird Land.</p>
+    </div>
+    <div class="week" role="region" aria-label="Qué abre cada día">
+      <table>
+        <thead><tr><th></th><th>L</th><th class="best">M</th><th>X</th><th class="best">J</th><th class="best">V</th><th class="best">S</th><th>D</th></tr></thead>
+        <tbody>
+          <tr><td>Tsukiji</td><td><span class="c ok">✓</span></td><td><span class="c ok">✓</span></td><td><span class="c mid">~</span></td><td><span class="c ok">✓</span></td><td><span class="c ok">✓</span></td><td><span class="c ok">✓</span></td><td><span class="c no">✕</span></td></tr>
+          <tr><td>Bird Land</td><td><span class="c no">✕</span></td><td><span class="c ok">✓</span></td><td><span class="c ok">✓</span></td><td><span class="c ok">✓</span></td><td><span class="c ok">✓</span></td><td><span class="c ok">✓</span></td><td><span class="c no">✕</span></td></tr>
+        </tbody>
+      </table>
+      <p>Mejores días: martes, jueves, viernes y sábado. El miércoles algunos puestos cierran. El lunes 23 es feriado: cierran Toyosu y muchos puestos de Tsukiji.</p>
+    </div>
+  </header>
+
+  <h2 class="section-title">La ruta</h2>
+  <p class="section-note">De la mañana en el mercado a la tarde en Marunouchi.</p>
+
+  <ol class="route">
+
+    <li class="stop">
+      <span class="num" aria-hidden="true">1</span>
+      <h3>Mercado exterior de Tsukiji</h3>
+      <p class="what">Puestos de comida y cuchillos alrededor del antiguo mercado mayorista.</p>
+      <ul class="sub">
+        <li>
+          <h4>Tsukiji Yamacho</h4>
+          <p>Tamagoyaki <span class="gloss">(tortilla japonesa dulce, enrollada en capas)</span>.</p>
+          <div class="facts"><span class="fact">6:00 a 15:30</span></div>
+          <div class="links"><a class="map" href="https://www.google.com/maps/search/?api=1&query=Tsukiji+Yamacho">Mapa</a><a href="https://www.tsukiji.or.jp/english/shoplist/cat-c/cat-10/466/">Tsukiji Outer Market</a></div>
+        </li>
+        <li>
+          <h4>Onigiriya Marutoyo</h4>
+          <p>Onigiri <span class="gloss">(bolas de arroz rellenas, envueltas en alga)</span> de salmón, ciruela encurtida o camarón frito.</p>
+          <div class="links"><a class="map" href="https://www.google.com/maps/search/?api=1&query=Onigiriya+Marutoyo+Tsukiji">Mapa</a><a href="https://www.the500hiddensecrets.com/japan/tokyo/eat/onigiri">The 500 Hidden Secrets</a></div>
+        </li>
+        <li>
+          <h4>Kitsuneya</h4>
+          <p>Horumon-don <span class="gloss">(tazón de arroz con vísceras de res guisadas en miso hatcho, un miso oscuro e intenso)</span>.</p>
+          <div class="facts"><span class="fact">5 asientos en barra, el resto de pie</span><span class="fact must">Fila desde temprano</span></div>
+          <div class="links"><a class="map" href="https://www.google.com/maps/search/?api=1&query=Kitsuneya+Tsukiji">Mapa</a><a href="https://www.timeout.com/tokyo/restaurants/kitsuneya">Time Out</a></div>
+        </li>
+        <li>
+          <h4>Tsukiji Wine Stand 88</h4>
+          <p>Sándwich de wagyu asado.</p>
+          <div class="links"><a class="map" href="https://www.google.com/maps/search/?api=1&query=Tsukiji+Wine+Stand+88">Mapa</a><a href="https://www.travelandleisure.com/guide-tsukiji-fish-market-tokyo-11768409">Travel + Leisure</a></div>
+        </li>
+        <li class="group">
+          Sushi Edomae
+          <p>El sushi tradicional de Tokio, con pescado curado, marinado o madurado.</p>
+        </li>
+        <li class="nested">
+          <h4>Sushi Zanmai Honten</h4>
+          <div class="facts"><span class="fact">24 h, los 365 días</span></div>
+          <div class="links"><a class="map" href="https://www.google.com/maps/search/?api=1&query=Sushi+Zanmai+Honten+Tsukiji">Mapa</a><a href="https://www.tsukiji.or.jp/english/shoplist/cat-d/cat-12/364/">Tsukiji Outer Market</a></div>
+        </li>
+        <li class="nested">
+          <h4>Shutoku Honten</h4>
+          <div class="facts"><span class="fact">11:00 a 15:00</span><span class="fact">17:00 a 22:30</span></div>
+          <div class="links"><a class="map" href="https://www.google.com/maps/search/?api=1&query=Shutoku+Honten+Tsukiji">Mapa</a><a href="https://www.tsukiji.or.jp/english/shoplist/cat-d/cat-12/">Tsukiji Outer Market</a></div>
+        </li>
+        <li class="nested">
+          <h4>Tsukiji Irodori</h4>
+          <p>En un callejón.</p>
+          <div class="facts"><span class="fact must">Cierra los jueves</span></div>
+          <div class="links"><a class="map" href="https://www.google.com/maps/search/?api=1&query=Tsukiji+Irodori">Mapa</a><a href="https://tabelog.com/en/tokyo/A1313/A131301/13262560/dtlrvwlst/">Tabelog</a></div>
+        </li>
+        <li>
+          <h4>Tour guiado con clase de sushi</h4>
+          <p>2 horas con un guía del mercado.</p>
+          <div class="links"><a href="https://www.getyourguide.com/tokyo-l193/tokyo-tsukiji-insider-market-walk-sushi-bento-making2h-t1291460/">GetYourGuide</a></div>
+        </li>
+      </ul>
+    </li>
+
+    <li class="stop">
+      <span class="num" aria-hidden="true">2</span>
+      <span class="opt">Opcional al amanecer</span>
+      <h3>Mercado de Toyosu</h3>
+      <p class="what">Aquí se mudó la subasta de atún. Se ve gratis y sin reserva desde el pasillo del segundo piso.</p>
+      <div class="hours">
+        <div class="row"><span class="tag day"><span class="dot"></span>Subasta</span>
+          <p>Desde las <b>5:00</b>; termina hacia las <b>6:25</b>.</p></div>
+        <div class="row"><span class="tag day"><span class="dot"></span>Cierra</span>
+          <p>Domingos, feriados (<b>el 23</b>) y otros días marcados en su calendario.</p></div>
+      </div>
+      <div class="links">
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=Toyosu+Market">Abrir en el mapa</a>
+        <a href="https://watabi.org/en/articles/toyosu-market-guide">Watabi</a>
+        <a href="https://www.english.metro.tokyo.lg.jp/w/016-101-003992">Gobierno de Tokio</a>
+      </div>
+    </li>
+
+    <li class="stop">
+      <span class="num" aria-hidden="true">3</span>
+      <h3>Jardines Hamarikyu</h3>
+      <p class="what">Un jardín de los antiguos señores feudales con casa de té junto a la bahía.</p>
+      <div class="facts"><span class="fact">9:00 a 17:00</span><span class="fact">Última entrada 16:30</span></div>
+      <div class="links">
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=Hamarikyu+Gardens">Abrir en el mapa</a>
+        <a href="https://roamtokyo.com/places/hamarikyu-gardens/">Roam Tokyo</a>
+      </div>
+    </li>
+
+    <li class="stop">
+      <span class="num" aria-hidden="true">4</span>
+      <h3>Ginza</h3>
+      <ul class="sub">
+        <li>
+          <h4>Muji Ginza</h4>
+          <p>La tienda Muji más grande del mundo.</p>
+          <div class="facts"><span class="fact">11:00 a 21:00</span></div>
+          <div class="links"><a class="map" href="https://www.google.com/maps/search/?api=1&query=Muji+Ginza">Mapa</a><a href="https://www.muji.com/flagship/ginza/">Muji</a></div>
+        </li>
+      </ul>
+      <div class="meals">
+        <article class="meal dinner">
+          <p class="when">Cena de sushi</p>
+          <h3>Ginza Sushiko Honten</h3>
+          <div class="facts">
+            <span class="fact">Ginza 6-3-8</span>
+            <span class="fact">12:00 a 14:00</span>
+            <span class="fact">17:00 a 22:00</span>
+            <span class="fact">En principio todos los días, incluido el 23</span>
+          </div>
+          <p>Omakase <span class="gloss">(menú del chef, pieza por pieza)</span> de sushi Edomae en barra de madera. Reserva en línea o por teléfono.</p>
+          <div class="links">
+            <a class="map" href="https://www.google.com/maps/search/?api=1&query=Ginza+Sushiko+Honten">Abrir en el mapa</a>
+            <a class="map" href="tel:+81335711968">Llamar 03-3571-1968</a>
+            <a href="https://restaurant.ikyu.com/148168">Ikyu</a>
+            <a href="https://hitosara.com/0006066076/food.html">Hitosara</a>
+            <a href="https://japan-food.guide/en/restaurants/1187">japan-food.guide</a>
+          </div>
+        </article>
+        <article class="meal dinner">
+          <p class="when">Cena de yakitori, la principal</p>
+          <h3>Bird Land Ginza</h3>
+          <div class="facts">
+            <span class="fact">Ginza 4-2-15, sótano</span>
+            <span class="fact">Salida C6, estación Ginza</span>
+            <span class="fact">Estrella Michelin</span>
+            <span class="fact">Mar a vie 17:00 a 22:00</span>
+            <span class="fact">Sáb hasta 21:30</span>
+            <span class="fact must">Cerrado dom, lun y feriados: no abre el 22 ni el 23</span>
+          </div>
+          <p>Yakitori <span class="gloss">(brochetas de pollo al carbón)</span>. Se reserva por OpenTable o por teléfono.</p>
+          <div class="links">
+            <a class="map" href="https://www.google.com/maps/search/?api=1&query=Bird+Land+Ginza">Abrir en el mapa</a>
+            <a class="map" href="tel:+81352501081">Llamar 03-5250-1081</a>
+            <a href="https://www.opentable.com/r/bird-land-ginza-chuo-ku">OpenTable</a>
+            <a href="https://shokunoren.com/release-calendar/bird-land-ginza">SHOKU NOREN</a>
+          </div>
+        </article>
+      </div>
+    </li>
+
+    <li class="stop">
+      <span class="num" aria-hidden="true">5</span>
+      <h3>Parque Hibiya</h3>
+      <p class="what">Un respiro verde entre Ginza y el Palacio Imperial. A fines de noviembre los árboles ya toman color.</p>
+      <div class="links"><a class="map" href="https://www.google.com/maps/search/?api=1&query=Hibiya+Park">Abrir en el mapa</a></div>
+    </li>
+
+    <li class="stop">
+      <span class="num" aria-hidden="true">6</span>
+      <h3>Nakagawa Masashichi Shoten</h3>
+      <p class="what">En KITTE Marunouchi, piso 4. Artesanía japonesa y regalos.</p>
+      <div class="facts"><span class="fact">11:00 a 20:00</span></div>
+      <div class="links">
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=KITTE+Marunouchi">Abrir en el mapa</a>
+        <a href="https://marunouchi.jp-kitte.jp/gb/shop.jsp?shopid=1068">KITTE</a>
+      </div>
+    </li>
+
+  </ol>
+
+<a class="backtop" href="#tokio">Volver a las zonas de Tokio</a></div></section>
+<section class="page p-tokio-2" id="tokio-2"><div class="wrap">
+
+  <header class="hero">
+    <div class="kanji" aria-hidden="true">浅草<small>秋葉原</small></div>
+    <p class="city">Tokio</p>
+    <p class="zone-no">Zona 2</p>
+    <h1>Asakusa, Ueno y Akihabara</h1>
+    <p class="lede">Del Tokio antiguo de Asakusa al barrio del anime, pasando por cuchillos, parque y origami.</p>
+    <div class="keydates">
+      <p><strong>Antes de elegir el día:</strong> Sometaro cierra martes y miércoles (17, 18, 24 y 25). El ramen Kuroki cierra los domingos y solo abre de 11:00 a 15:00, así que es para el mediodía, no para la noche. El café de búhos es solo con reserva.</p>
+    </div>
+    <div class="week" role="region" aria-label="Qué abre cada día">
+      <table>
+        <thead><tr><th></th><th class="best">L</th><th>M</th><th>X</th><th class="best">J</th><th class="best">V</th><th class="best">S</th><th>D</th></tr></thead>
+        <tbody>
+          <tr><td>Sometaro</td><td><span class="c ok">✓</span></td><td><span class="c no">✕</span></td><td><span class="c no">✕</span></td><td><span class="c ok">✓</span></td><td><span class="c ok">✓</span></td><td><span class="c ok">✓</span></td><td><span class="c ok">✓</span></td></tr>
+          <tr><td>Kuroki</td><td><span class="c ok">✓</span></td><td><span class="c ok">✓</span></td><td><span class="c ok">✓</span></td><td><span class="c ok">✓</span></td><td><span class="c ok">✓</span></td><td><span class="c ok">✓</span></td><td><span class="c no">✕</span></td></tr>
+        </tbody>
+      </table>
+      <p>Días en que abren los dos: lunes, jueves, viernes y sábado.</p>
+    </div>
+  </header>
+
+  <h2 class="section-title">La ruta</h2>
+  <p class="section-note">De Asakusa hacia el oeste, terminando en Akihabara.</p>
+
+  <ol class="route">
+
+    <li class="stop">
+      <span class="num" aria-hidden="true">1</span>
+      <h3>Mirador del Asakusa Culture Tourist Information Center</h3>
+      <p class="what">Terraza gratuita en el piso 8, frente a la puerta Kaminarimon, con vista a la Skytree.</p>
+      <div class="facts"><span class="fact">Gratis</span><span class="fact">Piso 8</span></div>
+      <div class="links">
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=Asakusa+Culture+Tourist+Information+Center">Abrir en el mapa</a>
+        <a href="https://www.gltjp.com/en/directory/item/14461/">GLTJP</a>
+      </div>
+      <ul class="sub" style="margin-top:12px">
+        <li>
+          <h4>Comida: Sometaro</h4>
+          <p>Okonomiyaki que cocinan ustedes mismos en la mesa, sentados sobre tatami, en un local de 1937.</p>
+          <div class="facts"><span class="fact">Comida desde 12:00</span><span class="fact">Cena desde 17:30</span><span class="fact must">Cierra mar y mié (17, 18, 24, 25)</span></div>
+          <div class="links"><a class="map" href="https://www.google.com/maps/search/?api=1&query=Sometaro+Asakusa">Mapa</a><a href="https://roamtokyo.com/places/sometaro/">Roam Tokyo</a><a href="https://theondo.net/tokyo/spots/sometaro/">The Ondo</a><a href="https://www.tripadvisor.com/Restaurant_Review-g1066461-d1178514-Reviews-Asakusa_Okonomiyaki_Sometaro-Taito_Tokyo_Tokyo_Prefecture_Kanto.html">Tripadvisor</a></div>
+        </li>
+        <li>
+          <h4>Yagenbori</h4>
+          <p>Shichimi togarashi <span class="gloss">(mezcla de siete especias con chile)</span> que preparan al momento según su gusto.</p>
+          <div class="facts"><span class="fact">Asakusa 1-28-3, calle Shin-Nakamise</span><span class="fact">10:00 a 18:00, todos los días</span></div>
+          <div class="links"><a class="map" href="https://www.google.com/maps/search/?api=1&query=Yagenbori+Asakusa">Mapa</a><a href="https://umami-labo.com/en/articles/tokyo-chomiryo-kaeru-mise">Umami Labo</a></div>
+        </li>
+      </ul>
+    </li>
+
+    <li class="stop">
+      <span class="num" aria-hidden="true">2</span>
+      <h3>Kappabashi</h3>
+      <p class="what">La calle de los utensilios de cocina y cuchillos japoneses.</p>
+      <ul class="sub">
+        <li>
+          <h4>Seisuke Knife Kappabashi</h4>
+          <p>Cuchillos artesanales japoneses, con atención en inglés.</p>
+          <div class="facts"><span class="fact">Matsugaya 2-1-11</span><span class="fact">10:00 a 18:00, todos los días</span></div>
+          <div class="links"><a class="map" href="https://www.google.com/maps/search/?api=1&query=Seisuke+Knife+Kappabashi">Mapa</a><a href="https://seisukeknife.com/pages/store-list">Seisuke Knife</a></div>
+        </li>
+      </ul>
+    </li>
+
+    <li class="stop">
+      <span class="num" aria-hidden="true">3</span>
+      <h3>Parque Ueno, estanque Shinobazu y Ameyoko</h3>
+      <p class="what">El parque y su estanque, y al lado Ameyoko, la calle-mercado bajo las vías del tren.</p>
+      <div class="links">
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=Shinobazu+Pond+Ueno">Abrir en el mapa</a>
+        <a href="https://www.gotokyo.org/en/spot/400/index.html">Go Tokyo</a>
+      </div>
+      <ul class="sub" style="margin-top:12px">
+        <li>
+          <h4>Yamashiroya</h4>
+          <p>Un edificio entero de juguetes.</p>
+          <div class="facts"><span class="fact">10:00 a 21:30</span></div>
+          <div class="links"><a class="map" href="https://www.google.com/maps/search/?api=1&query=Yamashiroya+Ueno">Mapa</a><a href="https://smart-tokyo.info/yamashiroya-ueno-101/">Smart Tokyo</a></div>
+        </li>
+      </ul>
+    </li>
+
+    <li class="stop">
+      <span class="num" aria-hidden="true">4</span>
+      <h3>Origami Kaikan</h3>
+      <p class="what">En Yushima. Mini clases de origami en inglés.</p>
+      <div class="facts"><span class="fact">Entrada gratis</span></div>
+      <div class="links">
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=Origami+Kaikan+Yushima">Abrir en el mapa</a>
+        <a href="https://geinokai.jp/blog/2026/10/15/origami-kaikan-tokyo-visit-guide/">Geinokai</a>
+      </div>
+    </li>
+
+    <li class="stop">
+      <span class="num" aria-hidden="true">5</span>
+      <h3>Akihabara</h3>
+      <p class="what">El barrio del anime, los videojuegos y la electrónica.</p>
+      <ul class="sub">
+        <li>
+          <h4>Yodobashi Akiba</h4>
+          <p>Electrónica en nueve pisos; el sexto es de juegos, maquetas y figuras.</p>
+          <div class="links"><a class="map" href="https://www.google.com/maps/search/?api=1&query=Yodobashi+Akiba">Mapa</a><a href="https://www.animesenseijp.com/tips/yodobashi-akiba-floor-guide/">Anime Sensei</a></div>
+        </li>
+        <li>
+          <h4>Mandarake Complex</h4>
+          <p>Ocho pisos de anime y manga de segunda mano.</p>
+          <div class="links"><a class="map" href="https://www.google.com/maps/search/?api=1&query=Mandarake+Complex+Akihabara">Mapa</a><a href="https://www.animesenseijp.com/tips/mandarake-akihabara/">Anime Sensei</a></div>
+        </li>
+        <li>
+          <h4>Owl Cafe Akiba Fukurou</h4>
+          <p>Unos 40 búhos en una sala tranquila.</p>
+          <div class="facts"><span class="fact must">Solo con reserva</span><span class="fact">10% de descuento en línea</span></div>
+          <div class="links"><a class="map" href="https://www.google.com/maps/search/?api=1&query=Akiba+Fukurou+Owl+Cafe">Mapa</a><a href="https://akiba2960.com/">Akiba Fukurou</a><a href="https://japanforkids.jp/places/akiba-fukurou-owl-cafe/">Japan for Kids</a></div>
+        </li>
+      </ul>
+    </li>
+
+    <li class="stop eat">
+      <span class="num" aria-hidden="true">6</span>
+      <p class="when">Ramen</p>
+      <h3>Motenashi Kuroki</h3>
+      <p class="what">En Asakusabashi, una estación después de Akihabara. Shio ramen <span class="gloss">(ramen de caldo de sal, ligero y fino)</span>.</p>
+      <div class="facts">
+        <span class="fact">13 asientos</span>
+        <span class="fact">Solo sin reserva</span>
+        <span class="fact must">11:00 a 15:00, cierra domingos</span>
+      </div>
+      <div class="links">
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=Motenashi+Kuroki+Asakusabashi">Abrir en el mapa</a>
+        <a href="https://www.meitengourmet.com/tokyo/kyou-kuro-ki">Meiten Gourmet</a>
+      </div>
+    </li>
+
+  </ol>
+
+<a class="backtop" href="#tokio">Volver a las zonas de Tokio</a></div></section>
+<section class="page p-tokio-3" id="tokio-3"><div class="wrap">
+
+  <header class="hero">
+    <div class="kanji" aria-hidden="true">新宿<small>神楽坂</small></div>
+    <p class="city">Tokio</p>
+    <p class="zone-no">Zona 3</p>
+    <h1>Shinjuku y Kagurazaka</h1>
+    <p class="lede">La noche de neón de Shinjuku y, aparte, una tarde con cena en los callejones de Kagurazaka.</p>
+    <nav class="jump" aria-label="Partes de la zona 3">
+      <a class="z-shinjuku" href="#shinjuku"><b>3. Shinjuku</b><span>Noche</span></a>
+      <a class="z-kagura" href="#kagurazaka"><b>3b. Kagurazaka</b><span>Tarde y cena</span></a>
+    </nav>
+  </header>
+
+  <!-- ===== Zona 3: Shinjuku ===== -->
+  <section class="zone z-shinjuku" id="shinjuku">
+    <div class="zone-head">
+      <div>
+        <p class="zone-no">Zona 3</p>
+        <h2>Shinjuku</h2>
+        <span class="tag night"><span class="dot"></span>Noche</span>
+      </div>
+      <div class="zone-kanji" aria-hidden="true">新宿</div>
+    </div>
+
+    <div class="keydates">
+      <p><strong>Ojo con Kabuto:</strong> es de tarde (13:00 a 20:00), solo efectivo, y cierra domingos y feriados: no abre el 15, el 22 ni el 23. En Isetan, entre las 19:00 y las 20:00 rebajan la comida preparada.</p>
+    </div>
+
+    <ol class="route">
+
+      <li class="stop eat">
+        <span class="num eat" aria-hidden="true">食</span>
+        <p class="when">Antes de la noche</p>
+        <h3>Sótano de comida de Isetan Shinjuku</h3>
+        <p class="what">El depachika <span class="gloss">(piso de comida en el sótano de unos grandes almacenes)</span> más famoso de Tokio: bento, sushi, dulces japoneses, sake y miso.</p>
+        <div class="facts"><span class="fact">10:00 a 20:00</span><span class="fact must">Rebajas de 19:00 a 20:00</span></div>
+        <div class="links">
+          <a class="map" href="https://www.google.com/maps/search/?api=1&query=Isetan+Shinjuku">Abrir en el mapa</a>
+          <a href="https://roamtokyo.com/places/depachika-at-isetan/">Roam Tokyo</a>
+          <a href="https://www.getplannery.com/guides/japan/tokyo/shinjuku/isetan-shinjuku-depachika">Plannery</a>
+        </div>
+      </li>
+
+      <li class="stop">
+        <span class="num" aria-hidden="true">1</span>
+        <h3>Godzilla del Hotel Gracery</h3>
+        <p class="what">En Kabukicho: la cabeza gigante de Godzilla sobre el hotel.</p>
+        <div class="links">
+          <a class="map" href="https://www.google.com/maps/search/?api=1&query=Hotel+Gracery+Shinjuku">Abrir en el mapa</a>
+          <a href="https://www.nippon.com/en/articles/-/19973">Nippon.com</a>
+        </div>
+      </li>
+
+      <li class="stop">
+        <span class="num" aria-hidden="true">2</span>
+        <h3>Omoide Yokocho</h3>
+        <p class="what">Callejón de puestos diminutos con parrilla.</p>
+        <ul class="sub">
+          <li>
+            <h4>Kameya</h4>
+            <p>Soba.</p>
+            <div class="facts"><span class="fact">Abierto 24 h</span></div>
+            <div class="links"><a class="map" href="https://www.google.com/maps/search/?api=1&query=Kameya+Omoide+Yokocho">Mapa</a><a href="https://en.shinjuku-omoide.com/shop/kameya">Omoide Yokocho</a></div>
+          </li>
+          <li>
+            <h4>Kabuto</h4>
+            <p>Brochetas de anguila a la parrilla.</p>
+            <div class="facts"><span class="fact">13:00 a 20:00</span><span class="fact">Sáb desde 12:00</span><span class="fact must">Solo efectivo</span><span class="fact must">Cerrado 15, 22 y 23</span></div>
+            <div class="links"><a class="map" href="https://www.google.com/maps/search/?api=1&query=Kabuto+Omoide+Yokocho">Mapa</a><a href="https://goshinjuku.com/shop/kabuto">Go Shinjuku</a><a href="https://www.guide2japan.com/blog/best-restaurants-in-shinjuku/">Guide2Japan</a></div>
+          </li>
+        </ul>
+        <div class="links"><a class="map" href="https://www.google.com/maps/search/?api=1&query=Omoide+Yokocho">Abrir el callejón en el mapa</a></div>
+      </li>
+
+      <li class="stop">
+        <span class="num" aria-hidden="true">3</span>
+        <span class="opt">Mejor para los hijos</span>
+        <h3>Golden Gai</h3>
+        <p class="what">Unos 300 bares diminutos en callejones.</p>
+        <div class="links">
+          <a class="map" href="https://www.google.com/maps/search/?api=1&query=Golden+Gai+Shinjuku">Abrir en el mapa</a>
+          <a href="https://www.gltjp.com/en/directory/item/11027/">GLTJP</a>
+        </div>
+      </li>
+
+    </ol>
+
+    <h3 class="section-title">Para cenar</h3>
+    <div class="meals">
+      <article class="meal dinner">
+        <p class="when">Sushi</p>
+        <h3>Sakura Sushi</h3>
+        <div class="facts"><span class="fact">Kabukicho 1-25-3</span><span class="fact">11:00 a 23:00, todos los días</span><span class="fact">Sin reserva</span></div>
+        <p>Sushi de banda giratoria.</p>
+        <div class="links">
+          <a class="map" href="https://www.google.com/maps/search/?api=1&query=Sakura+Sushi+Kabukicho">Abrir en el mapa</a>
+          <a href="https://www.tripadvisor.com/Restaurant_Review-g14133667-d8398489-Reviews-Sakura_Sushi-Kabukicho_Shinjuku_Tokyo_Tokyo_Prefecture_Kanto.html">Tripadvisor</a>
+        </div>
+      </article>
+      <article class="meal dinner">
+        <p class="when">Ramen</p>
+        <h3>Menya Sho</h3>
+        <div class="facts"><span class="fact">Nishi-Shinjuku</span><span class="fact">Todos los días</span></div>
+        <p>Ramen y tsukemen <span class="gloss">(fideos que se mojan en un caldo aparte)</span> de pollo.</p>
+        <div class="hours">
+          <div class="row"><span class="tag night"><span class="dot"></span>Lun–vie</span><p><b>18:00 a 22:00</b></p></div>
+          <div class="row"><span class="tag night"><span class="dot"></span>Sáb</span><p><b>17:00 a 22:00</b></p></div>
+          <div class="row"><span class="tag night"><span class="dot"></span>Dom y fer.</span><p><b>17:00 a 21:00</b></p></div>
+        </div>
+        <div class="links">
+          <a class="map" href="https://www.google.com/maps/search/?api=1&query=Menya+Sho+Nishishinjuku">Abrir en el mapa</a>
+          <a href="https://savorjapan.com/contents/discover-oishii-japan/the-best-ramen-and-tsukemen-in-shinjuku">Savor Japan</a>
+          <a href="https://menya-sho.co.jp/shop/nishishinjyuku_shop/">Menya Sho</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== Zona 3b: Kagurazaka ===== -->
+  <section class="zone z-kagura" id="kagurazaka">
+    <div class="zone-head">
+      <div>
+        <p class="zone-no">Zona 3b</p>
+        <h2>Kagurazaka</h2>
+        <span class="tag day"><span class="dot"></span>Tarde y cena</span>
+      </div>
+      <div class="zone-kanji" aria-hidden="true">神楽坂</div>
+    </div>
+
+    <p class="what" style="margin:0 0 14px">Barrio de callejones empedrados con aire francés, a una parada del metro Tozai desde Iidabashi. Las dos paradas están a pasos de la <b>salida 2</b> de la estación Kagurazaka.</p>
+
+    <div class="week" role="region" aria-label="Qué días abre SANKA">
+      <table>
+        <thead><tr><th></th><th>L</th><th class="best">M</th><th class="best">X</th><th class="best">J</th><th class="best">V</th><th class="best">S</th><th>D</th></tr></thead>
+        <tbody><tr><td>SANKA</td><td><span class="c no">✕</span></td><td><span class="c ok">✓</span></td><td><span class="c ok">✓</span></td><td><span class="c ok">✓</span></td><td><span class="c ok">✓</span></td><td><span class="c ok">✓</span></td><td><span class="c no">✕</span></td></tr></tbody>
+      </table>
+      <p>Reserva por TableCheck con hasta un mes de anticipación.</p>
+    </div>
+
+    <ol class="route">
+      <li class="stop">
+        <span class="num" aria-hidden="true">1</span>
+        <h3>AKOMEYA TOKYO in la kagū</h3>
+        <p class="what">Tienda de arroces de todo Japón que pulen al momento, más acompañamientos y vajilla para regalar.</p>
+        <div class="facts"><span class="fact">Yaraicho 67</span><span class="fact">11:00 a 20:00</span></div>
+        <div class="links">
+          <a class="map" href="https://www.google.com/maps/search/?api=1&query=AKOMEYA+TOKYO+in+la+kagu">Abrir en el mapa</a>
+          <a href="https://www.akomeya.jp/store_info/storelist">AKOMEYA</a>
+        </div>
+      </li>
+
+      <li class="stop eat">
+        <span class="num" aria-hidden="true">2</span>
+        <p class="when">Cena</p>
+        <h3>Yakitori SANKA</h3>
+        <p class="what">Yakitori <span class="gloss">(brochetas de pollo al carbón)</span> con Bib Gourmand de la Guía Michelin <span class="gloss">(reconocimiento a buena cocina a precio razonable)</span>, en una barra de 11 asientos. Usan pollos y sal de Kochi, y el dueño es sumiller: vale la pena el maridaje con vino o sake.</p>
+        <div class="facts">
+          <span class="fact">Yaraicho 64-4, DEAR Kagurazaka 2F</span>
+          <span class="fact">Solo menú degustación, desde ~¥7,260</span>
+          <span class="fact must">Cierra dom y lun</span>
+        </div>
+        <div class="hours">
+          <div class="row"><span class="tag night"><span class="dot"></span>Mar–vie</span><p><b>17:30 a 23:00</b></p></div>
+          <div class="row"><span class="tag night"><span class="dot"></span>Sáb</span><p><b>17:00 a 23:00</b></p></div>
+        </div>
+        <div class="links">
+          <a class="map" href="https://www.google.com/maps/search/?api=1&query=Yakitori+SANKA+Kagurazaka">Abrir en el mapa</a>
+          <a class="map" href="https://www.tablecheck.com/en/yakitori-sanka">Reservar en TableCheck</a>
+          <a href="https://guide.michelin.com/en/tokyo-region/tokyo/restaurant/yakitori-sanka">Guía Michelin</a>
+          <a href="https://tabelog.com/en/tokyo/A1309/A130905/13245585/">Tabelog</a>
+          <a href="https://tourli.com/guides/japan/tokyo/michelin-restaurants">Tourli</a>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+<a class="backtop" href="#tokio">Volver a las zonas de Tokio</a></div></section>
+<section class="page p-tokio-4" id="tokio-4"><div class="wrap">
+
+  <header class="hero">
+    <div class="kanji" aria-hidden="true">原宿<small>渋谷</small></div>
+    <p class="city">Tokio</p>
+    <p class="zone-no">Zona 4</p>
+    <h1 style="font-size:clamp(32px,9vw,44px)">Harajuku, Omotesando, Aoyama, Shibuya y Daikanyama</h1>
+    <p class="lede">Del bosque de Meiji Jingu a la moda de Harajuku, el cruce de Shibuya y una cena en Daikanyama.</p>
+    <div class="keydates">
+      <p><strong>Para elegir el día:</strong> los rockabillies bailan en Yoyogi los domingos por la tarde (15 y 22). Goodbeer Faucets cierra los lunes (16 y 23). El mipig cafe se llena con días de anticipación los fines de semana y el feriado del 23: reserven por la web.</p>
+    </div>
+    <div class="week" role="region" aria-label="Qué hay cada día">
+      <table>
+        <thead><tr><th></th><th>L</th><th>M</th><th>X</th><th>J</th><th>V</th><th>S</th><th class="best">D</th></tr></thead>
+        <tbody>
+          <tr><td>Rockabillies</td><td><span class="c no">✕</span></td><td><span class="c no">✕</span></td><td><span class="c no">✕</span></td><td><span class="c no">✕</span></td><td><span class="c no">✕</span></td><td><span class="c no">✕</span></td><td><span class="c ok">✓</span></td></tr>
+          <tr><td>Goodbeer</td><td><span class="c no">✕</span></td><td><span class="c ok">✓</span></td><td><span class="c ok">✓</span></td><td><span class="c ok">✓</span></td><td><span class="c ok">✓</span></td><td><span class="c ok">✓</span></td><td><span class="c ok">✓</span></td></tr>
+        </tbody>
+      </table>
+      <p>El domingo coinciden los dos. Meiji Jingu cierra temprano en noviembre (16:10), así que conviene empezar por ahí.</p>
+    </div>
+  </header>
+
+  <h2 class="section-title">La ruta</h2>
+  <p class="section-note">Del santuario hacia el sur, terminando con cena en Daikanyama.</p>
+
+  <ol class="route">
+
+    <li class="stop">
+      <span class="num" aria-hidden="true">1</span>
+      <h3>Meiji Jingu</h3>
+      <p class="what">El gran santuario sintoísta dentro de un bosque.</p>
+      <div class="facts"><span class="fact">Gratis</span><span class="fact must">Noviembre: 6:10 a 16:10</span></div>
+      <div class="links">
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=Meiji+Jingu">Abrir en el mapa</a>
+        <a href="https://www.meijijingu.or.jp/en/visit/">Meiji Jingu</a>
+      </div>
+    </li>
+
+    <li class="stop">
+      <span class="num" aria-hidden="true">2</span>
+      <h3>Parque Yoyogi</h3>
+      <p class="what">Los domingos por la tarde bailan los rockabillies en la entrada.</p>
+      <div class="facts"><span class="fact must">Domingos 15 y 22, por la tarde</span></div>
+      <div class="links">
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=Yoyogi+Park">Abrir en el mapa</a>
+        <a href="https://roamtokyo.com/places/yoyogi-park/">Roam Tokyo</a>
+      </div>
+    </li>
+
+    <li class="stop">
+      <span class="num" aria-hidden="true">3</span>
+      <h3>Harajuku y Omotesando</h3>
+      <p class="what">La calle Takeshita, Omotesando Hills y Kiddy Land, cinco pisos de personajes.</p>
+      <div class="links">
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=Takeshita+Street+Harajuku">Calle Takeshita</a>
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=Kiddy+Land+Harajuku">Kiddy Land</a>
+        <a href="https://www.animesenseijp.com/tips/kiddy-land-harajuku/">Anime Sensei</a>
+      </div>
+      <ul class="sub" style="margin-top:12px">
+        <li>
+          <h4>Boutique Takenoko</h4>
+          <p>En la calle Takeshita. La tienda de vestuario de colores que dio nombre a los bailarines de Harajuku de los ochenta.</p>
+          <div class="facts"><span class="fact">11:00 a 20:00</span><span class="fact must">Solo efectivo</span></div>
+          <div class="links"><a class="map" href="https://www.google.com/maps/search/?api=1&query=Boutique+Takenoko+Harajuku">Mapa</a><a href="https://www.timeout.com/tokyo/things-to-do/50-things-to-do-in-harajuku">Time Out</a><a href="https://cheku.co/blogs/japan-travel-tips/tokyo-fashion-harajuku">Cheku</a></div>
+        </li>
+        <li>
+          <h4>mipig cafe</h4>
+          <p>Café de cerditos mini: se sientan en el suelo y los cerditos se acomodan en el regazo. Dos locales: Jingumae 1-15-4 y calle Takeshita (Jingumae 1-6-10).</p>
+          <div class="facts"><span class="fact">10:00 a 20:00</span><span class="fact">¥3,300 por 25 min</span><span class="fact">¥4,950 por 55 min</span><span class="fact must">Solo con reserva por la web</span></div>
+          <div class="links"><a class="map" href="https://www.google.com/maps/search/?api=1&query=mipig+cafe+Harajuku">Mapa</a><a href="https://mipig.cafe/en/locations/harajuku/">mipig cafe</a><a href="https://mipig.cafe/en/locations/harajuku-takeshita/">mipig Takeshita</a><a href="https://japanforkids.jp/places/mipig-cafe-harajuku/">Japan for Kids</a></div>
+        </li>
+        <li>
+          <h4>Desayuno: bills Omotesando</h4>
+          <p>Pancakes de ricotta.</p>
+          <div class="facts"><span class="fact">Desde las 8:30</span></div>
+          <div class="links"><a class="map" href="https://www.google.com/maps/search/?api=1&query=bills+Omotesando">Mapa</a><a href="https://www.billsjapan.com/en/locations/omotesando">bills</a></div>
+        </li>
+        <li>
+          <h4>AFURI Harajuku</h4>
+          <p>Ramen con yuzu <span class="gloss">(cítrico japonés)</span>.</p>
+          <div class="facts"><span class="fact">10:00 a 23:00</span></div>
+          <div class="links"><a class="map" href="https://www.google.com/maps/search/?api=1&query=AFURI+Harajuku">Mapa</a><a href="https://www.iwafu.com/en/kanbans/95">iwafu</a></div>
+        </li>
+        <li>
+          <h4>Tonkatsu Maisen Aoyama Honten</h4>
+          <p>Tonkatsu <span class="gloss">(chuleta de cerdo empanizada)</span> en un antiguo baño público.</p>
+          <div class="facts"><span class="fact">11:00 a 22:00, todos los días</span></div>
+          <div class="links"><a class="map" href="https://www.google.com/maps/search/?api=1&query=Tonkatsu+Maisen+Aoyama+Honten">Mapa</a><a href="https://hontojapan.com/best-tonkatsu-tokyo/">Honto Japan</a></div>
+        </li>
+      </ul>
+    </li>
+
+    <li class="stop">
+      <span class="num" aria-hidden="true">4</span>
+      <h3>Shibuya</h3>
+      <ul class="sub">
+        <li>
+          <h4>Cruce de Shibuya</h4>
+          <p>El paso peatonal más famoso del mundo, frente a la salida Hachiko. Impresiona más al atardecer.</p>
+          
+          <div class="links"><a class="map" href="https://www.google.com/maps/search/?api=1&query=Shibuya+Scramble+Crossing">Mapa</a></div>
+        </li>
+        <li>
+          <h4>Tokyo Anime Center</h4>
+          <p>Exposiciones de anime, a 3 minutos de la salida Hachiko.</p>
+          <div class="facts"><span class="fact">Shibuya MODI, piso 2</span></div>
+          <div class="links"><a class="map" href="https://www.google.com/maps/search/?api=1&query=Tokyo+Anime+Center+Shibuya+MODI">Mapa</a><a href="https://www.animesenseijp.com/tips/tokyo-anime-center/">Anime Sensei</a></div>
+        </li>
+        <li>
+          <h4>Muji Shibuya</h4>
+          <p>Sigue abierto junto con Loft, aunque el edificio Seibu cerró.</p>
+          
+          <div class="links"><a class="map" href="https://www.google.com/maps/search/?api=1&query=Muji+Shibuya">Mapa</a><a href="https://www.tokyobureau.com/2026/is-seibu-shibuya-closed">Tokyo Bureau</a></div>
+        </li>
+        <li>
+          <h4>Sagatani</h4>
+          <p>Soba por menos de ¥1,000.</p>
+          <div class="facts"><span class="fact">Abierto 24 h</span></div>
+          <div class="links"><a class="map" href="https://www.google.com/maps/search/?api=1&query=Sagatani+Shibuya">Mapa</a><a href="https://www.timeout.com/tokyo/restaurants/sagatani">Time Out</a></div>
+        </li>
+        <li>
+          <h4>Shibuya Niku Yokocho</h4>
+          <p>28 locales de carne.</p>
+          <div class="facts"><span class="fact">17:00 a 5:00</span></div>
+          <div class="links"><a class="map" href="https://www.google.com/maps/search/?api=1&query=Shibuya+Niku+Yokocho">Mapa</a><a href="https://www.magical-trip.com/media/where-to-drink-in-shibuya-recommended-izakayas/">Magical Trip</a></div>
+        </li>
+        <li>
+          <h4>Goodbeer Faucets</h4>
+          <p>Más de 40 cervezas artesanales de barril.</p>
+          <div class="facts"><span class="fact">Mar a dom, 15:00 a 23:00</span><span class="fact must">Cierra lunes (16 y 23)</span></div>
+          <div class="links"><a class="map" href="https://www.google.com/maps/search/?api=1&query=Goodbeer+Faucets+Shibuya">Mapa</a><a href="https://goodbeerfaucets.jp/en/">Goodbeer Faucets</a></div>
+        </li>
+      </ul>
+    </li>
+
+    <li class="stop eat">
+      <span class="num" aria-hidden="true">5</span>
+      <p class="when">Cena en Daikanyama</p>
+      <h3>Monsoon Cafe</h3>
+      <p class="what">Cocina del sudeste asiático en un espacio tipo resort con terraza.</p>
+      <div class="facts"><span class="fact">11:30 a 23:30</span><span class="fact">Todos los días, sin cierre</span><span class="fact">Reserva en línea</span></div>
+      <div class="links">
+        <a class="map" href="https://www.google.com/maps/search/?api=1&query=Monsoon+Cafe+Daikanyama">Abrir en el mapa</a>
+        <a href="https://monsoon-cafe.jp/daikanyama/">Monsoon Cafe</a>
+        <a href="https://us.trip.com/restaurant/japan/tokyo/detail/monsoon-cafe-daikanyama-17614616/">Trip.com</a>
+      </div>
+    </li>
+
+  </ol>
+
+<a class="backtop" href="#tokio">Volver a las zonas de Tokio</a></div></section>
+<section class="page p-tokio-5" id="tokio-5"><div class="wrap">
+
+  <header class="hero">
+    <div class="kanji" aria-hidden="true">六本木<small>中野</small></div>
+    <p class="city">Tokio</p>
+    <p class="zone-no">Zonas 5 y 6, y excursiones</p>
+    <h1>Roppongi, Nakano y fuera de Tokio</h1>
+    <p class="lede">Una noche en Roppongi, medio día de anime en el oeste y dos salidas de un día.</p>
+    <nav class="jump" aria-label="Partes de esta guía">
+      <a class="z-roppongi" href="#roppongi"><b>5. Roppongi</b><span>Noche</span></a>
+      <a class="z-nakano" href="#nakano"><b>6. Nakano</b><span>Medio día</span></a>
+      <a class="z-trips" href="#excursiones"><b>Excursiones</b><span>Día completo</span></a>
+    </nav>
+  </header>
+
+  <!-- ===== Zona 5 ===== -->
+  <section class="zone z-roppongi" id="roppongi">
+    <div class="zone-head">
+      <div>
+        <p class="zone-no">Zona 5</p>
+        <h2>Roppongi</h2>
+        <span class="tag night"><span class="dot"></span>Noche</span>
+      </div>
+      <div class="zone-kanji" aria-hidden="true">六本木</div>
+    </div>
+
+    <ol class="route">
+      <li class="stop">
+        <span class="num" aria-hidden="true">1</span>
+        <h3>Roppongi Hills</h3>
+        <p class="what">Tiendas y miradores.</p>
+        <div class="links"><a class="map" href="https://www.google.com/maps/search/?api=1&query=Roppongi+Hills">Abrir en el mapa</a></div>
+        <div class="meals" style="margin-top:12px">
+          <article class="meal dinner">
+            <p class="when">Cena especial</p>
+            <h3>L’Atelier de Joël Robuchon</h3>
+            <div class="facts"><span class="fact">Todos los días</span><span class="fact">Cena desde 18:00</span><span class="fact">Última entrada 19:30</span><span class="fact must">Reserven con tiempo</span></div>
+            <p>Cocina francesa en barra frente a la cocina abierta.</p>
+            <div class="links">
+              <a class="map" href="https://www.google.com/maps/search/?api=1&query=L%27Atelier+de+Joel+Robuchon+Roppongi+Hills">Abrir en el mapa</a>
+              <a href="https://www.robuchon.jp/en/shop-list/latelier">Robuchon</a>
+              <a href="https://guide.michelin.com/us/en/tokyo-region/tokyo/restaurant/l-atelier-de-joel-robuchon-1194216">Guía Michelin</a>
+            </div>
+          </article>
+        </div>
+      </li>
+
+      <li class="stop">
+        <span class="num" aria-hidden="true">2</span>
+        <h3>Don Quijote Roppongi</h3>
+        <p class="what">Para recuerdos y KitKats de sabores japoneses.</p>
+        <div class="facts"><span class="fact">Abierto 24 h</span></div>
+        <div class="links">
+          <a class="map" href="https://www.google.com/maps/search/?api=1&query=Don+Quijote+Roppongi">Abrir en el mapa</a>
+          <a href="https://www.donki.com/en/store/shop_detail.php?shop_id=31">Don Quijote</a>
+        </div>
+      </li>
+
+      <li class="stop">
+        <span class="num" aria-hidden="true">3</span>
+        <h3>Tokyo Tower</h3>
+        <p class="what">A pocos minutos en taxi. De noche se ilumina.</p>
+        <div class="links"><a class="map" href="https://www.google.com/maps/search/?api=1&query=Tokyo+Tower">Abrir en el mapa</a></div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ===== Zona 6 ===== -->
+  <section class="zone z-nakano" id="nakano">
+    <div class="zone-head">
+      <div>
+        <p class="zone-no">Zona 6, oeste</p>
+        <h2>Nakano y Suginami</h2>
+        <span class="tag day"><span class="dot"></span>Medio día de anime</span>
+      </div>
+      <div class="zone-kanji" aria-hidden="true">中野</div>
+    </div>
+
+    <div class="week" role="region" aria-label="Qué días abre el museo">
+      <table>
+        <thead><tr><th></th><th>L</th><th>M</th><th class="best">X</th><th class="best">J</th><th class="best">V</th><th class="best">S</th><th class="best">D</th></tr></thead>
+        <tbody><tr><td>Museo</td><td><span class="c no">✕</span></td><td><span class="c mid">~</span></td><td><span class="c ok">✓</span></td><td><span class="c ok">✓</span></td><td><span class="c ok">✓</span></td><td><span class="c ok">✓</span></td><td><span class="c ok">✓</span></td></tr></tbody>
+      </table>
+      <p>Cierra los lunes. El lunes 23 es feriado y abre, pero cierra el martes 24. En estas fechas, eviten el lunes 16 y el martes 24.</p>
+    </div>
+
+    <ol class="route">
+      <li class="stop">
+        <span class="num" aria-hidden="true">1</span>
+        <h3>Nakano Broadway</h3>
+        <p class="what">Galería de coleccionismo, anime y relojes.</p>
+        <div class="facts"><span class="fact must">Salida norte de la estación en obras</span></div>
+        <div class="links">
+          <a class="map" href="https://www.google.com/maps/search/?api=1&query=Nakano+Broadway">Abrir en el mapa</a>
+          <a href="https://oshitripjapan.com/nakano-guide-broadway-records-and-the-rest-of-the-district/">Oshi Trip Japan</a>
+        </div>
+      </li>
+      <li class="stop">
+        <span class="num" aria-hidden="true">2</span>
+        <h3>Suginami Animation Museum</h3>
+        <div class="facts"><span class="fact">Gratis</span><span class="fact">10:00 a 18:00</span><span class="fact">Entrada hasta 17:30</span><span class="fact must">Evitar lun 16 y mar 24</span></div>
+        <div class="links">
+          <a class="map" href="https://www.google.com/maps/search/?api=1&query=Suginami+Animation+Museum">Abrir en el mapa</a>
+          <a href="https://sam.or.jp/english_home">Suginami Animation Museum</a>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ===== Excursiones ===== -->
+  <section class="zone z-trips" id="excursiones">
+    <div class="zone-head">
+      <div>
+        <p class="zone-no">Fuera de Tokio</p>
+        <h2>Excursiones de un día</h2>
+        <span class="tag day"><span class="dot"></span>Día completo</span>
+      </div>
+      <div class="zone-kanji" aria-hidden="true">富士山</div>
+    </div>
+
+    <div class="meals">
+      <article class="meal trip">
+        <p class="when">Excursión</p>
+        <h3>Monte Fuji y lago Kawaguchi</h3>
+        <p>Noviembre es de los meses más despejados. Lleguen temprano, cuando es más probable ver el Fuji sin nubes.</p>
+        <ul class="sub">
+          <li>
+            <h4>Festival de las Hojas de Otoño de Kawaguchiko</h4>
+            <p>Se ilumina al atardecer.</p>
+            <div class="facts"><span class="fact">Hasta el 29 nov</span><span class="fact">9:00 a 19:00</span></div>
+            <div class="links"><a class="map" href="https://www.google.com/maps/search/?api=1&query=Momiji+Corridor+Kawaguchiko">Mapa</a><a href="https://en.kawaguchiko.net/event-en/fujikawaguchiko-momiji-festival/">Kawaguchiko</a></div>
+          </li>
+          <li>
+            <h4>Mt. Fuji Panoramic Ropeway</h4>
+            <p>Teleférico. Opera normalmente en estas fechas.</p>
+            <div class="facts"><span class="fact">Cierra por inspección 7 a 18 dic</span></div>
+            <div class="links"><a class="map" href="https://www.google.com/maps/search/?api=1&query=Mt+Fuji+Panoramic+Ropeway">Mapa</a><a href="https://www.mtfujiropeway.jp/en/">Mt. Fuji Ropeway</a></div>
+          </li>
+          <li>
+            <h4>Opción con tour: Sunrise Tours</h4>
+            <p>El día en Fuji y Hakone desde Shinjuku, con regreso en shinkansen <span class="gloss">(tren bala)</span>. Antes de reservar, pregunten qué pasa si el clima obliga a cambiar la ruta.</p>
+            <div class="facts"><span class="fact">¥29,500 por persona</span></div>
+            <div class="links"><a href="https://www.sunrise-tours.jp/en/plan/list">Sunrise Tours</a></div>
+          </li>
+        </ul>
+        <div class="links" style="margin-top:10px">
+          <a class="map" href="https://www.google.com/maps/search/?api=1&query=Lake+Kawaguchi">Abrir el lago en el mapa</a>
+          <a href="https://www.guide2japan.com/plan-a-trip/japan-in-november-travel-guide/">Guide2Japan</a>
+        </div>
+      </article>
+
+      <article class="meal trip">
+        <p class="when">Excursión</p>
+        <h3>Shin-Yokohama Raumen Museum</h3>
+        <div class="facts"><span class="fact">Entrada ¥450</span></div>
+        <p>Un museo del ramen con varios locales para probar estilos de todo Japón.</p>
+        <div class="links">
+          <a class="map" href="https://www.google.com/maps/search/?api=1&query=Shin-Yokohama+Raumen+Museum">Abrir en el mapa</a>
+          <a href="https://www.raumen.co.jp/english/">Raumen Museum</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+<a class="backtop" href="#tokio">Volver a las zonas de Tokio</a></div></section>
+</div>
+<div class="city c-tokyo"><div class="wrap"><footer class="end"><a href="#inicio">Volver al inicio</a></footer></div></div>
+<script>
+(function(){
+  var links=document.querySelectorAll('.topbar a');
+  function set(c){links.forEach(function(a){a.classList.toggle('on',a.dataset.c===c)});}
+  if(!('IntersectionObserver' in window))return;
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting)set(e.target.dataset.city)});
+  },{rootMargin:'-70px 0px -80% 0px'});
+  document.querySelectorAll('[data-city]').forEach(function(s){io.observe(s)});
+})();
+</script>
+<script>
+// Se activa al visitar el sitio mediante HTTPS (o localhost).
+if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('./service-worker.js').catch(function(err){console.warn('Offline no disponible:',err);});
+  });
+}
+</script>
+</body>
+</html>
